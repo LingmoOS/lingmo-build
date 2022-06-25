@@ -1,3 +1,3 @@
-# CirilyBuild.sh
-A build script for compiling Cutefish Community Edition Cirily DE.
+# Build.sh
+A build script for compiling Cutefish Community Edition PiscesDE.
 ## Preface
