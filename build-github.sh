@@ -1,23 +1,23 @@
 #!/bin/bash
 #case select test for
-echo '欢迎使用CutefishDE自动编译脚本, 本脚本适用于大部分Debian/Ubuntu发行版, 旨在让更多Linux使用可爱鱼.'
-echo '若编译出现错误可根据官方GitHub自行修改脚本内容再次编译, 官方Github: https://github.com/cutefishos/ .'
-echo '原作者Moore本墨, Github: https://github.com/Moore2253/CutefishOSBuild.sh'
+echo '欢迎使用PiscesDE自动编译脚本, 本脚本适用于大部分Debian/Ubuntu发行版, 旨在让更多Linux使用可爱鱼.'
+echo '若编译出现错误可根据官方GitHub自行修改脚本内容再次编译, 官方Github: https://github.com/piscesde/ .'
+echo '原作者Moore本墨, Github: https://github.com/Moore2253/piscesdeBuild.sh'
 echo '增加了一次编译所有库的功能, 修改者wujunyi'
 echo '提示: 请输入项目前序号并回车以开始编译, 输入25(quit)退出'
 
 PS3='请选择你要编译的项目, 27为退出: '
 echo $PS3
-echo '检测~/目录下是否存在是否已经存在cutefishos文件夹'
-if test -e ~/cutefishos 
+echo '检测~/目录下是否存在是否已经存在piscesde文件夹'
+if test -e ~/piscesde 
 then
   echo '检测到同名文件夹, 正在删除'
-  sudo rm -rf ~/cutefishos
+  sudo rm -rf ~/piscesde
   echo '删除完毕, 重新创建文件夹, 继续编译'
-  mkdir ~/cutefishos
+  mkdir ~/piscesde
 else
   echo "无同名文件夹, 继续编译"
-  mkdir ~/cutefishos
+  mkdir ~/piscesde
 fi
 
 echo '开始安装依赖'
@@ -27,11 +27,11 @@ function Compile(){
     case $1 in 
         filemanager)
         echo '开始编译filemanager'
-        cd ~/cutefishos
+        cd ~/piscesde
         echo '正在克隆项目'
         git clone https://github.com/piscesys/filemanager.git
         echo '正在编译'
-        cd ~/cutefishos/filemanager
+        cd ~/piscesde/filemanager
         sudo mk-build-deps ./debian/control -i -t "apt-get --yes" -r
         dpkg-buildpackage -b -uc -us
         mkdir build
@@ -44,11 +44,11 @@ function Compile(){
         ;;
         dock)
         echo '开始编译dock'
-        cd ~/cutefishos
+        cd ~/piscesde
         echo '正在克隆项目'
         git clone https://github.com/piscesys/dock.git
         echo '正在编译'
-        cd ~/cutefishos/dock
+        cd ~/piscesde/dock
         sudo mk-build-deps ./debian/control -i -t "apt-get --yes" -r
         dpkg-buildpackage -b -uc -us
         mkdir build
@@ -60,9 +60,9 @@ function Compile(){
         echo 'dock安装完成'
         ;;
         fishui)
-        cd ~/cutefishos
+        cd ~/piscesde
         git clone https://github.com/piscesys/fishui.git
-        cd ~/cutefishos/fishui
+        cd ~/piscesde/fishui
         sudo mk-build-deps ./debian/control -i -t "apt-get --yes" -r
         dpkg-buildpackage -b -uc -us
         mkdir build
@@ -72,9 +72,9 @@ function Compile(){
         sudo make install
         ;;
         screenshot)
-        cd ~/cutefishos
+        cd ~/piscesde
         git clone https://github.com/piscesys/screenshot.git
-        cd ~/cutefishos/screenshot
+        cd ~/piscesde/screenshot
         sudo mk-build-deps ./debian/control -i -t "apt-get --yes" -r
         dpkg-buildpackage -b -uc -us
         mkdir build
@@ -84,9 +84,9 @@ function Compile(){
         sudo make install
         ;;
         qt-plugins)
-        cd ~/cutefishos
+        cd ~/piscesde
         git clone https://github.com/piscesys/qt-plugins.git
-        cd ~/cutefishos/qt-plugins
+        cd ~/piscesde/qt-plugins
         sudo mk-build-deps ./debian/control -i -t "apt-get --yes" -r
         dpkg-buildpackage -b -uc -us
         mkdir build
@@ -96,9 +96,9 @@ function Compile(){
         sudo make install
         ;;
         terminal)
-        cd ~/cutefishos
+        cd ~/piscesde
         git clone https://github.com/piscesys/terminal.git
-        cd ~/cutefishos/terminal
+        cd ~/piscesde/terminal
         sudo mk-build-deps ./debian/control -i -t "apt-get --yes" -r
         dpkg-buildpackage -b -uc -us
         mkdir build
@@ -108,9 +108,9 @@ function Compile(){
         sudo make install
         ;;
         launcher)
-        cd ~/cutefishos
+        cd ~/piscesde
         git clone https://github.com/piscesys/launcher.git
-        cd ~/cutefishos/launcher
+        cd ~/piscesde/launcher
         sudo mk-build-deps ./debian/control -i -t "apt-get --yes" -r
         dpkg-buildpackage -b -uc -us
         mkdir build
@@ -120,9 +120,9 @@ function Compile(){
         sudo make install
         ;;
         settings)
-        cd ~/cutefishos
+        cd ~/piscesde
         git clone https://github.com/piscesys/settings.git
-        cd ~/cutefishos/settings
+        cd ~/piscesde/settings
         sudo mk-build-deps ./debian/control -i -t "apt-get --yes" -r
         dpkg-buildpackage -b -uc -us
         mkdir build
@@ -132,9 +132,9 @@ function Compile(){
         sudo make install
         ;;
         debinstaller)
-        cd ~/cutefishos
+        cd ~/piscesde
         git clone https://github.com/piscesys/debinstaller.git
-        cd ~/cutefishos/debinstaller
+        cd ~/piscesde/debinstaller
         sudo mk-build-deps ./debian/control -i -t "apt-get --yes" -r
         dpkg-buildpackage -b -uc -us
         mkdir build
@@ -144,9 +144,9 @@ function Compile(){
         sudo make install
         ;;
         icons)
-        cd ~/cutefishos
+        cd ~/piscesde
         git clone https://github.com/piscesys/icons.git
-        cd ~/cutefishos/icons
+        cd ~/piscesde/icons
         sudo mk-build-deps ./debian/control -i -t "apt-get --yes" -r
         dpkg-buildpackage -b -uc -us
         mkdir build
@@ -156,9 +156,9 @@ function Compile(){
         sudo make install
         ;;
         gtk-themes)
-        cd ~/cutefishos
+        cd ~/piscesde
         git clone https://github.com/piscesys/gtk-themes.git
-        cd ~/cutefishos/gtk-themes
+        cd ~/piscesde/gtk-themes
         sudo mk-build-deps ./debian/control -i -t "apt-get --yes" -r
         dpkg-buildpackage -b -uc -us
         mkdir build
@@ -168,9 +168,9 @@ function Compile(){
         sudo make install
         ;;
         daemon)
-        cd ~/cutefishos
+        cd ~/piscesde
         git clone https://github.com/piscesys/daemon.git
-        cd ~/cutefishos/daemon
+        cd ~/piscesde/daemon
         sudo mk-build-deps ./debian/control -i -t "apt-get --yes" -r
         dpkg-buildpackage -b -uc -us
         mkdir build
@@ -180,9 +180,9 @@ function Compile(){
         sudo make install
         ;;
         statusbar)
-        cd ~/cutefishos
+        cd ~/piscesde
         git clone https://github.com/piscesys/statusbar.git
-        cd ~/cutefishos/statusbar
+        cd ~/piscesde/statusbar
         sudo mk-build-deps ./debian/control -i -t "apt-get --yes" -r
         dpkg-buildpackage -b -uc -us
         mkdir build
@@ -192,9 +192,9 @@ function Compile(){
         sudo make install
         ;;
         libcutefish)
-        cd ~/cutefishos
+        cd ~/piscesde
         git clone https://github.com/piscesys/libcutefish.git
-        cd ~/cutefishos/libcutefish
+        cd ~/piscesde/libcutefish
         sudo mk-build-deps ./debian/control -i -t "apt-get --yes" -r
         dpkg-buildpackage -b -uc -us
         mkdir build
@@ -204,9 +204,9 @@ function Compile(){
         sudo make install
         ;;
         core)
-        cd ~/cutefishos
+        cd ~/piscesde
         git clone https://github.com/piscesys/core.git
-        cd ~/cutefishos/core
+        cd ~/piscesde/core
         sudo mk-build-deps ./debian/control -i -t "apt-get --yes" -r
         dpkg-buildpackage -b -uc -us
         mkdir build
@@ -216,9 +216,9 @@ function Compile(){
         sudo make install
         ;;
         updator)
-        cd ~/cutefishos
+        cd ~/piscesde
         git clone https://github.com/piscesys/updator.git
-        cd ~/cutefishos/updator
+        cd ~/piscesde/updator
         sudo mk-build-deps ./debian/control -i -t "apt-get --yes" -r
         dpkg-buildpackage -b -uc -us
         mkdir build
@@ -228,9 +228,9 @@ function Compile(){
         sudo make install
         ;;
         screenlocker)
-        cd ~/cutefishos
+        cd ~/piscesde
         git clone https://github.com/piscesys/screenlocker.git
-        cd ~/cutefishos/screenlocker
+        cd ~/piscesde/screenlocker
         sudo mk-build-deps ./debian/control -i -t "apt-get --yes" -r
         dpkg-buildpackage -b -uc -us
         mkdir build
@@ -240,10 +240,10 @@ function Compile(){
         sudo make install
         ;;
         texteditor)
-        cd ~/cutefishos
+        cd ~/piscesde
         sudo mk-build-deps -i -t "apt-get --yes" -r
         git clone https://github.com/piscesys/texteditor.git
-        cd ~/cutefishos/texteditor
+        cd ~/piscesde/texteditor
         sudo mk-build-deps ./debian/control -i -t "apt-get --yes" -r
         dpkg-buildpackage -b -uc -us
         mkdir build
@@ -253,9 +253,9 @@ function Compile(){
         sudo make install
         ;;
         calculator)
-        cd ~/cutefishos
+        cd ~/piscesde
         git clone https://github.com/piscesys/calculator.git
-        cd ~/cutefishos/calculator
+        cd ~/piscesde/calculator
         sudo mk-build-deps ./debian/control -i -t "apt-get --yes" -r
         dpkg-buildpackage -b -uc -us
         mkdir build
@@ -265,9 +265,9 @@ function Compile(){
         sudo make install
         ;;
         kwin-plugins)
-        cd ~/cutefishos
+        cd ~/piscesde
         git clone https://github.com/piscesys/kwin-plugins.git
-        cd ~/cutefishos/kwin-plugins
+        cd ~/piscesde/kwin-plugins
         sudo mk-build-deps ./debian/control -i -t "apt-get --yes" -r
         dpkg-buildpackage -b -uc -us
         mkdir build
@@ -277,9 +277,9 @@ function Compile(){
         sudo make install
         ;;
         videoplayer)
-        cd ~/cutefishos
+        cd ~/piscesde
         git clone https://github.com/piscesys/videoplayer.git
-        cd ~/cutefishos/videoplayer
+        cd ~/piscesde/videoplayer
         sudo mk-build-deps ./debian/control -i -t "apt-get --yes" -r
         dpkg-buildpackage -b -uc -us
         mkdir build
@@ -289,9 +289,9 @@ function Compile(){
         sudo make install
         ;;
         sddm-theme)
-        cd ~/cutefishos
+        cd ~/piscesde
         git clone https://github.com/piscesys/sddm-theme.git
-        cd ~/cutefishos/sddm-theme
+        cd ~/piscesde/sddm-theme
         sudo mk-build-deps ./debian/control -i -t "apt-get --yes" -r
         dpkg-buildpackage -b -uc -us
         mkdir build
@@ -301,9 +301,9 @@ function Compile(){
         sudo make install
         ;;
         appmotor)
-        cd ~/cutefishos
+        cd ~/piscesde
         git clone https://github.com/piscesys/appmotor.git
-        cd ~/cutefishos/appmotor
+        cd ~/piscesde/appmotor
         sudo mk-build-deps ./debian/control -i -t "apt-get --yes" -r
         dpkg-buildpackage -b -uc -us
         mkdir build
@@ -313,9 +313,9 @@ function Compile(){
         sudo make install
         ;;
         wallpapers)
-        cd ~/cutefishos
+        cd ~/piscesde
         git clone https://github.com/piscesys/wallpapers.git
-        cd ~/cutefishos/wallpapers
+        cd ~/piscesde/wallpapers
         sudo mk-build-deps ./debian/control -i -t "apt-get --yes" -r
         dpkg-buildpackage -b -uc -us
         mkdir build
@@ -325,9 +325,9 @@ function Compile(){
         sudo make install
         ;;
         calamares)
-        cd ~/cutefishos
+        cd ~/piscesde
         git clone https://github.com/piscesys/calamares.git
-        cd ~/cutefishos/calamares
+        cd ~/piscesde/calamares
         sudo mk-build-deps ./debian/control -i -t "apt-get --yes" -r
         dpkg-buildpackage -b -uc -us
         mkdir build
