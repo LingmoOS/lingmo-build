@@ -29,7 +29,7 @@ function Compile(){
         echo '开始编译filemanager'
         cd ~/piscesde
         echo '正在克隆项目'
-        git clone https://github.com/piscesys/filemanager.git
+        git clone https://gh.api.99988866.xyz/https://github.com/piscesys/filemanager.git
         echo '正在编译'
         cd ~/piscesde/filemanager
         sudo mk-build-deps ./debian/control -i -t "apt-get --yes" -r
@@ -46,7 +46,7 @@ function Compile(){
         echo '开始编译dock'
         cd ~/piscesde
         echo '正在克隆项目'
-        git clone https://github.com/piscesys/dock.git
+        git clone https://gh.api.99988866.xyz/https://github.com/piscesys/dock.git
         echo '正在编译'
         cd ~/piscesde/dock
         sudo mk-build-deps ./debian/control -i -t "apt-get --yes" -r
@@ -61,7 +61,7 @@ function Compile(){
         ;;
         fishui)
         cd ~/piscesde
-        git clone https://github.com/piscesys/fishui.git
+        git clone https://gh.api.99988866.xyz/https://github.com/piscesys/fishui.git
         cd ~/piscesde/fishui
         sudo mk-build-deps ./debian/control -i -t "apt-get --yes" -r
         dpkg-buildpackage -b -uc -us
@@ -73,7 +73,7 @@ function Compile(){
         ;;
         screenshot)
         cd ~/piscesde
-        git clone https://github.com/piscesys/screenshot.git
+        git clone https://gh.api.99988866.xyz/https://github.com/piscesys/screenshot.git
         cd ~/piscesde/screenshot
         sudo mk-build-deps ./debian/control -i -t "apt-get --yes" -r
         dpkg-buildpackage -b -uc -us
@@ -85,7 +85,7 @@ function Compile(){
         ;;
         qt-plugins)
         cd ~/piscesde
-        git clone https://github.com/piscesys/qt-plugins.git
+        git clone https://gh.api.99988866.xyz/https://github.com/piscesys/qt-plugins.git
         cd ~/piscesde/qt-plugins
         sudo mk-build-deps ./debian/control -i -t "apt-get --yes" -r
         dpkg-buildpackage -b -uc -us
@@ -97,7 +97,7 @@ function Compile(){
         ;;
         terminal)
         cd ~/piscesde
-        git clone https://github.com/piscesys/terminal.git
+        git clone https://gh.api.99988866.xyz/https://github.com/piscesys/terminal.git
         cd ~/piscesde/terminal
         sudo mk-build-deps ./debian/control -i -t "apt-get --yes" -r
         dpkg-buildpackage -b -uc -us
@@ -109,7 +109,7 @@ function Compile(){
         ;;
         launcher)
         cd ~/piscesde
-        git clone https://github.com/piscesys/launcher.git
+        git clone https://gh.api.99988866.xyz/https://github.com/piscesys/launcher.git
         cd ~/piscesde/launcher
         sudo mk-build-deps ./debian/control -i -t "apt-get --yes" -r
         dpkg-buildpackage -b -uc -us
@@ -121,7 +121,7 @@ function Compile(){
         ;;
         settings)
         cd ~/piscesde
-        git clone https://github.com/piscesys/settings.git
+        git clone https://gh.api.99988866.xyz/https://github.com/piscesys/settings.git
         cd ~/piscesde/settings
         sudo mk-build-deps ./debian/control -i -t "apt-get --yes" -r
         dpkg-buildpackage -b -uc -us
@@ -133,7 +133,7 @@ function Compile(){
         ;;
         debinstaller)
         cd ~/piscesde
-        git clone https://github.com/piscesys/debinstaller.git
+        git clone https://gh.api.99988866.xyz/https://github.com/piscesys/debinstaller.git
         cd ~/piscesde/debinstaller
         sudo mk-build-deps ./debian/control -i -t "apt-get --yes" -r
         dpkg-buildpackage -b -uc -us
@@ -145,7 +145,7 @@ function Compile(){
         ;;
         icons)
         cd ~/piscesde
-        git clone https://github.com/piscesys/icons.git
+        git clone https://gh.api.99988866.xyz/https://github.com/piscesys/icons.git
         cd ~/piscesde/icons
         sudo mk-build-deps ./debian/control -i -t "apt-get --yes" -r
         dpkg-buildpackage -b -uc -us
@@ -157,7 +157,7 @@ function Compile(){
         ;;
         gtk-themes)
         cd ~/piscesde
-        git clone https://github.com/piscesys/gtk-themes.git
+        git clone https://gh.api.99988866.xyz/https://github.com/piscesys/gtk-themes.git
         cd ~/piscesde/gtk-themes
         sudo mk-build-deps ./debian/control -i -t "apt-get --yes" -r
         dpkg-buildpackage -b -uc -us
@@ -169,7 +169,7 @@ function Compile(){
         ;;
         daemon)
         cd ~/piscesde
-        git clone https://github.com/piscesys/daemon.git
+        git clone https://gh.api.99988866.xyz/https://github.com/piscesys/daemon.git
         cd ~/piscesde/daemon
         sudo mk-build-deps ./debian/control -i -t "apt-get --yes" -r
         dpkg-buildpackage -b -uc -us
@@ -181,7 +181,7 @@ function Compile(){
         ;;
         statusbar)
         cd ~/piscesde
-        git clone https://github.com/piscesys/statusbar.git
+        git clone https://gh.api.99988866.xyz/https://github.com/piscesys/statusbar.git
         cd ~/piscesde/statusbar
         sudo mk-build-deps ./debian/control -i -t "apt-get --yes" -r
         dpkg-buildpackage -b -uc -us
@@ -193,7 +193,7 @@ function Compile(){
         ;;
         libcutefish)
         cd ~/piscesde
-        git clone https://github.com/piscesys/libcutefish.git
+        git clone https://gh.api.99988866.xyz/https://github.com/piscesys/libcutefish.git
         cd ~/piscesde/libcutefish
         sudo mk-build-deps ./debian/control -i -t "apt-get --yes" -r
         dpkg-buildpackage -b -uc -us
@@ -205,7 +205,7 @@ function Compile(){
         ;;
         core)
         cd ~/piscesde
-        git clone https://github.com/piscesys/core.git
+        git clone https://gh.api.99988866.xyz/https://github.com/piscesys/core.git
         cd ~/piscesde/core
         sudo mk-build-deps ./debian/control -i -t "apt-get --yes" -r
         dpkg-buildpackage -b -uc -us
@@ -217,7 +217,7 @@ function Compile(){
         ;;
         updator)
         cd ~/piscesde
-        git clone https://github.com/piscesys/updator.git
+        git clone https://gh.api.99988866.xyz/https://github.com/piscesys/updator.git
         cd ~/piscesde/updator
         sudo mk-build-deps ./debian/control -i -t "apt-get --yes" -r
         dpkg-buildpackage -b -uc -us
@@ -229,7 +229,7 @@ function Compile(){
         ;;
         screenlocker)
         cd ~/piscesde
-        git clone https://github.com/piscesys/screenlocker.git
+        git clone https://gh.api.99988866.xyz/https://github.com/piscesys/screenlocker.git
         cd ~/piscesde/screenlocker
         sudo mk-build-deps ./debian/control -i -t "apt-get --yes" -r
         dpkg-buildpackage -b -uc -us
@@ -242,7 +242,7 @@ function Compile(){
         texteditor)
         cd ~/piscesde
         sudo mk-build-deps -i -t "apt-get --yes" -r
-        git clone https://github.com/piscesys/texteditor.git
+        git clone https://gh.api.99988866.xyz/https://github.com/piscesys/texteditor.git
         cd ~/piscesde/texteditor
         sudo mk-build-deps ./debian/control -i -t "apt-get --yes" -r
         dpkg-buildpackage -b -uc -us
@@ -254,7 +254,7 @@ function Compile(){
         ;;
         calculator)
         cd ~/piscesde
-        git clone https://github.com/piscesys/calculator.git
+        git clone https://gh.api.99988866.xyz/https://github.com/piscesys/calculator.git
         cd ~/piscesde/calculator
         sudo mk-build-deps ./debian/control -i -t "apt-get --yes" -r
         dpkg-buildpackage -b -uc -us
@@ -266,7 +266,7 @@ function Compile(){
         ;;
         kwin-plugins)
         cd ~/piscesde
-        git clone https://github.com/piscesys/kwin-plugins.git
+        git clone https://gh.api.99988866.xyz/https://github.com/piscesys/kwin-plugins.git
         cd ~/piscesde/kwin-plugins
         sudo mk-build-deps ./debian/control -i -t "apt-get --yes" -r
         dpkg-buildpackage -b -uc -us
@@ -278,7 +278,7 @@ function Compile(){
         ;;
         videoplayer)
         cd ~/piscesde
-        git clone https://github.com/piscesys/videoplayer.git
+        git clone https://gh.api.99988866.xyz/https://github.com/piscesys/videoplayer.git
         cd ~/piscesde/videoplayer
         sudo mk-build-deps ./debian/control -i -t "apt-get --yes" -r
         dpkg-buildpackage -b -uc -us
@@ -290,7 +290,7 @@ function Compile(){
         ;;
         sddm-theme)
         cd ~/piscesde
-        git clone https://github.com/piscesys/sddm-theme.git
+        git clone https://gh.api.99988866.xyz/https://github.com/piscesys/sddm-theme.git
         cd ~/piscesde/sddm-theme
         sudo mk-build-deps ./debian/control -i -t "apt-get --yes" -r
         dpkg-buildpackage -b -uc -us
@@ -302,7 +302,7 @@ function Compile(){
         ;;
         appmotor)
         cd ~/piscesde
-        git clone https://github.com/piscesys/appmotor.git
+        git clone https://gh.api.99988866.xyz/https://github.com/piscesys/appmotor.git
         cd ~/piscesde/appmotor
         sudo mk-build-deps ./debian/control -i -t "apt-get --yes" -r
         dpkg-buildpackage -b -uc -us
@@ -314,7 +314,7 @@ function Compile(){
         ;;
         wallpapers)
         cd ~/piscesde
-        git clone https://github.com/piscesys/wallpapers.git
+        git clone https://gh.api.99988866.xyz/https://github.com/piscesys/wallpapers.git
         cd ~/piscesde/wallpapers
         sudo mk-build-deps ./debian/control -i -t "apt-get --yes" -r
         dpkg-buildpackage -b -uc -us
@@ -326,7 +326,7 @@ function Compile(){
         ;;
         calamares)
         cd ~/piscesde
-        git clone https://github.com/piscesys/calamares.git
+        git clone https://gh.api.99988866.xyz/https://github.com/piscesys/calamares.git
         cd ~/piscesde/calamares
         sudo mk-build-deps ./debian/control -i -t "apt-get --yes" -r
         dpkg-buildpackage -b -uc -us
