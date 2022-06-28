@@ -2,7 +2,7 @@
 #case select test for
 echo '欢迎使用PiscesDE自动编译脚本, 本脚本适用于大部分Debian/Ubuntu发行版, 旨在让更多Linux使用可爱鱼.'
 echo '若编译出现错误可根据官方GitHub自行修改脚本内容再次编译, 官方Github: https://github.com/piscesde/ .'
-echo '原作者Moore本墨, Github: https://github.com/Moore2253/piscesdeBuild.sh'
+echo '原作者Moore本墨, Github: https://github.com/Moore2253/CutefishDEBuild.sh'
 echo '增加了一次编译所有库的功能, 修改者wujunyi'
 echo '提示: 请输入项目前序号并回车以开始编译, 输入25(quit)退出'
 
