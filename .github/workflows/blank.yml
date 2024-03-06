@@ -32,8 +32,7 @@ jobs:
         run: apt-get upgrade -y
       - name: Install the basic dev packages
         run: apt-get install -y equivs curl git devscripts lintian build-essential automake autotools-dev cmake g++
-
       # Runs a single command using the runners shell
       - name: Run a build script
-        run: bash build-github.sh
+        run: bash -i -c build-github.sh
 
