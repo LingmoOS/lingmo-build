@@ -26,6 +26,13 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
+      - name: Update repository
+        run: apt-get update -y
+      - name: Upgrade packages
+        run: apt-get upgrade -y
+      - name: Install the basic dev packages
+        run: apt-get install -y equivs curl git devscripts lintian build-essential automake autotools-dev cmake g++
+
       # Runs a single command using the runners shell
       - name: Run a build script
         run: bash build-github.sh
