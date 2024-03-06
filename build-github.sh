@@ -36,7 +36,7 @@ function Compile() {
 
 echo '开始安装依赖'
 apt install git  devscripts equivs
-git clone git@github.com:LingmoOS/LingmoOSBuildDeps.git
+git clone https://github.com/LingmoOS/LingmoOSBuildDeps.git
 cd LingmoOSBuildDeps
 mk-build-deps -i -t "apt-get -y" -r
 
