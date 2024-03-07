@@ -56,7 +56,7 @@ function Compile() {
     cd $source_dir
     mv -v *.deb $deb_dir/
 }
-REPOS="lingmo-screenlocker lingmo-settings lingmo-screenshots lingmo-cursor-themes lingmo-sddm-theme lingmo-appmotor lingmo-neofetch lingmo-daemon lingmo-ocr lingmo-terminal lingmo-gtk-themes LingmoUI lingmo-systemicons lingmo-wallpapers lingmo-debinstaller lingmo-calculator lingmo-system-build lingmo-windows-plugins lingmo-launcher lingmo-kwin lingmo-kernel lingmo-statusbar lingmo-qt-plugins lingmo-dock lingmo-system-core liblingmo lingmo-filemanager lingmo-core lingmo-texteditor lingmo-kwin-plugins lingmo-videoplayer"
+REPOS="lingmo-screenlocker lingmo-settings lingmo-screenshots lingmo-cursor-themes lingmo-sddm-theme lingmo-appmotor lingmo-neofetch lingmo-daemon lingmo-ocr lingmo-terminal lingmo-gtk-themes LingmoUI lingmo-systemicons lingmo-wallpapers lingmo-debinstaller lingmo-calculator lingmo-windows-plugins lingmo-launcher lingmo-kwin lingmo-kernel lingmo-statusbar lingmo-qt-plugins lingmo-dock liblingmo lingmo-filemanager lingmo-core lingmo-texteditor lingmo-kwin-plugins lingmo-videoplayer"
 
 # 列出所有项目供用户选择
 select project in \
@@ -76,7 +76,6 @@ lingmo-systemicons \
 lingmo-wallpapers \
 lingmo-debinstaller \
 lingmo-calculator \
-lingmo-system-build \
 lingmo-windows-plugins \
 lingmo-launcher \
 lingmo-kwin \
@@ -84,7 +83,6 @@ lingmo-kernel \
 lingmo-statusbar \
 lingmo-qt-plugins \
 lingmo-dock \
-lingmo-system-core \
 liblingmo \
 lingmo-filemanager \
 lingmo-core \
