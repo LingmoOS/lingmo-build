@@ -13,7 +13,7 @@ then
   rm -rf $source_dir
 fi
 echo '创建新的LingmoOS源文件夹...'
-mkdir $source_dir
+mkdir -p $source_dir
 
 if test -e $deb_dir
 then
@@ -21,7 +21,7 @@ then
   rm -rf $deb_dir
 fi
 echo '创建新的LingmoOS输出文件夹...'
-mkdir $deb_dir
+mkdir -p $deb_dir
 
 function InstallDepends() {
     echo '开始安装依赖'
