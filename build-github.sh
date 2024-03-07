@@ -1,18 +1,27 @@
 #!/bin/bash
 set -e
 script_dir=$(cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd)
-source_dir=$source_dir
+source_dir=$script_dir/LingmoSrcBuild/Src
+deb_dir=$script_dir/LingmoSrcBuild/Deb
 
 echo '欢迎使用灵墨OS自动编译脚本!'
 echo '提示: 使用前请确认已经安装了所有必要的依赖。'
 
 if test -e $source_dir
 then
-  echo '存在同名的LingmoOS文件夹，正在删除...'
+  echo '存在同名的LingmoOS源文件夹，正在删除...'
   rm -rf $source_dir
 fi
-echo '创建新的LingmoOS文件夹...'
+echo '创建新的LingmoOS源文件夹...'
 mkdir $source_dir
+
+if test -e $deb_dir
+then
+  echo '存在同名的LingmoOS输出文件夹，正在删除...'
+  rm -rf $deb_dir
+fi
+echo '创建新的LingmoOS输出文件夹...'
+mkdir $deb_dir
 
 function InstallDepends() {
     echo '开始安装依赖'
@@ -42,6 +51,10 @@ function Compile() {
     dpkg-buildpackage -b -uc -us -tc -j$(nproc)
     # 在这里添加项目构建和编译命令
     echo "$repo_name 编译完成"
+    
+    echo "复制 $repo_name 的安装包"
+    cd $source_dir
+    mv -v *.deb $deb_dir/
 }
 REPOS="lingmo-screenlocker lingmo-settings lingmo-screenshots lingmo-cursor-themes lingmo-sddm-theme lingmo-appmotor lingmo-neofetch lingmo-daemon lingmo-ocr lingmo-terminal lingmo-gtk-themes LingmoUI lingmo-systemicons lingmo-wallpapers lingmo-debinstaller lingmo-calculator lingmo-system-build lingmo-windows-plugins lingmo-launcher lingmo-kwin lingmo-kernel lingmo-statusbar lingmo-qt-plugins lingmo-dock lingmo-system-core liblingmo lingmo-filemanager lingmo-core lingmo-texteditor lingmo-kwin-plugins lingmo-videoplayer"
 
