@@ -28,7 +28,7 @@ function InstallDepends() {
     apt install git  devscripts equivs
     git clone https://github.com/LingmoOS/LingmoOSBuildDeps.git
     cd LingmoOSBuildDeps
-    mk-build-deps -i -t "apt-get -y" -r
+    mk-build-deps -i -t "apt-get -y" -r  > /dev/null
 }
 
 # 定义一个函数来编译项目
@@ -57,6 +57,9 @@ function Compile() {
     mv -v *.deb $deb_dir/
 }
 REPOS="lingmo-screenlocker lingmo-settings lingmo-screenshots lingmo-cursor-themes lingmo-sddm-theme lingmo-appmotor lingmo-neofetch lingmo-daemon lingmo-ocr lingmo-terminal lingmo-gtk-themes LingmoUI lingmo-systemicons lingmo-wallpapers lingmo-debinstaller lingmo-calculator lingmo-windows-plugins lingmo-launcher lingmo-kwin lingmo-kernel lingmo-statusbar lingmo-qt-plugins lingmo-dock liblingmo lingmo-filemanager lingmo-core lingmo-texteditor lingmo-kwin-plugins lingmo-videoplayer"
+
+# 先安装依赖
+InstallDepends
 
 # 列出所有项目供用户选择
 select project in \
@@ -93,7 +96,6 @@ all \
 quit
 
 do
-    InstallDepends
     if [[ $project == "all" ]]; then
         for repo in $REPOS; do
             Compile $repo
