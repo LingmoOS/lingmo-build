@@ -55,7 +55,7 @@ function Compile() {
     
     echo "复制 $repo_name 的安装包"
     cd $source_dir
-    mv -v !(*dbgsym*.deb) $deb_dir/
+    mv -v !(*dbgsym*).deb $deb_dir/
 }
 REPOS="lingmo-screenlocker lingmo-settings lingmo-screenshots lingmo-cursor-themes lingmo-sddm-theme lingmo-appmotor lingmo-neofetch lingmo-daemon lingmo-ocr lingmo-terminal lingmo-gtk-themes LingmoUI lingmo-systemicons lingmo-wallpapers lingmo-debinstaller lingmo-calculator lingmo-windows-plugins lingmo-launcher lingmo-kwin lingmo-kernel lingmo-statusbar lingmo-qt-plugins lingmo-dock liblingmo lingmo-filemanager lingmo-core lingmo-texteditor lingmo-kwin-plugins lingmo-videoplayer"
 
