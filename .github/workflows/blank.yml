@@ -34,5 +34,5 @@ jobs:
         run: apt-get install -y equivs curl git devscripts lintian build-essential automake autotools-dev cmake g++
       # Runs a single command using the runners shell
       - name: Run a build script
-        run: echo 30 | bash build-github.sh
+        run: echo 29 | bash build-github.sh
 
