@@ -52,18 +52,25 @@ function Compile() {
     dpkg-buildpackage -b -uc -us -tc -j$(nproc)
     # 在这里添加项目构建和编译命令
     echo "$repo_name 编译完成"
+
+    # lingmo-kwin 需要安装
+    if [ "$repo_name" = "lingmo-kwin" ]; then
+        echo "安装 lingmo-kwin"
+        apt install -y $source_dir/!(*dbgsym*).deb
+    fi
     
     echo "复制 $repo_name 的安装包"
     cd $source_dir
     mv -v !(*dbgsym*).deb $deb_dir/
 }
-REPOS="lingmo-screenlocker lingmo-settings lingmo-screenshots lingmo-cursor-themes lingmo-sddm-theme lingmo-appmotor lingmo-neofetch lingmo-daemon lingmo-ocr lingmo-terminal lingmo-gtk-themes LingmoUI lingmo-systemicons lingmo-wallpapers lingmo-debinstaller lingmo-calculator lingmo-windows-plugins lingmo-launcher lingmo-kwin lingmo-statusbar lingmo-qt-plugins lingmo-dock liblingmo lingmo-filemanager lingmo-core lingmo-texteditor lingmo-kwin-plugins lingmo-videoplayer"
+REPOS="lingmo-kwin lingmo-screenlocker lingmo-settings lingmo-screenshots lingmo-cursor-themes lingmo-sddm-theme lingmo-appmotor lingmo-neofetch lingmo-daemon lingmo-ocr lingmo-terminal lingmo-gtk-themes LingmoUI lingmo-systemicons lingmo-wallpapers lingmo-debinstaller lingmo-calculator lingmo-windows-plugins lingmo-launcher lingmo-statusbar lingmo-qt-plugins lingmo-dock liblingmo lingmo-filemanager lingmo-core lingmo-texteditor lingmo-kwin-plugins lingmo-videoplayer"
 
 # 先安装依赖
 InstallDepends
 
 # 列出所有项目供用户选择
 select project in \
+lingmo-kwin \
 lingmo-screenlocker \
 lingmo-settings \
 lingmo-screenshots \
@@ -82,7 +89,6 @@ lingmo-debinstaller \
 lingmo-calculator \
 lingmo-windows-plugins \
 lingmo-launcher \
-lingmo-kwin \
 lingmo-statusbar \
 lingmo-qt-plugins \
 lingmo-dock \
