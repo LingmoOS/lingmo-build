@@ -56,7 +56,7 @@ function Compile() {
     # lingmo-kwin 需要安装
     if [ "$repo_name" = "lingmo-kwin" ]; then
         echo "安装 lingmo-kwin"
-        apt install -y $source_dir/!(*dbgsym*).deb
+        apt install -y -–no-install-recommends $source_dir/!(*dbgsym*).deb
     fi
     
     echo "复制 $repo_name 的安装包"
