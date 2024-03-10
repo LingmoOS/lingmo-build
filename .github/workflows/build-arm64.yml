@@ -57,6 +57,7 @@ jobs:
             base_image: raspios_lite_arm64:latest
             use_systemd_nspawn: true
             bind_mount_repository: true
+            image_additional_mb: 10240
             commands: |
                 apt-get update -y
                 apt-get upgrade -y
