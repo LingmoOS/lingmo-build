@@ -22,10 +22,10 @@ jobs:
         - name: Add arm64 architecture
           run: |
             dpkg --add-architecture arm64
+            apt update
 
         - name: Run a build script
           run: |
-            dpkg --add-architecture armhf
             echo 29 | bash build-github-cross-compile.sh
 
         - name: Zip built files
