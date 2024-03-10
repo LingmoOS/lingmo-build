@@ -14,55 +14,19 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    steps:
-        - name: Free up spaces
-          run: |
-            echo "=============================================================================="
-            echo "Freeing up disk space on CI system"
-            echo "=============================================================================="
-            
-            echo "Listing 100 largest packages"
-            dpkg-query -Wf '${Installed-Size}\t${Package}\n' | sort -n | tail -n 100
-            df -h
-            echo "Removing large packages"
-            sudo apt-get remove -y '^ghc-*'
-            sudo apt-get remove -y '^dotnet-.*'
-            sudo apt-get remove -y '^llvm-.*'
-            sudo apt-get remove -y 'php.*'
-            sudo apt-get remove -y azure-cli google-cloud-sdk google-chrome-stable firefox powershell monodoc-http mono-devel
-            sudo apt-get autoremove -y
-            sudo apt-get clean
-            df -h
-            echo "Removing large directories"
-            # deleting 15GB
-            rm -rf /usr/share/dotnet/
-            rm -rf /opt/hostedtoolcache
-            df -h
-
-        - name: Maximize build space
-          uses: easimon/maximize-build-space@master
-          with:
-            root-reserve-mb: 4096
-            swap-size-mb: 512
-            remove-dotnet: 'true'
-            remove-android: 'true'
-
-        
+    container: docker.io/library/debian:trixie-slim
+    steps:   
         # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
         - uses: actions/checkout@v3
         
+        - name: Add arm64 architecture
+          run: |
+            dpkg --add-architecture arm64
 
-        - uses: pguyot/arm-runner-action@v2
-          with:
-            base_image: raspios_lite_arm64:latest
-            use_systemd_nspawn: true
-            bind_mount_repository: true
-            image_additional_mb: 10240
-            commands: |
-                apt-get update -y
-                apt-get upgrade -y
-                apt-get install -y equivs curl git devscripts lintian build-essential automake autotools-dev cmake g++
-                echo 29 | bash build-github.sh
+        - name: Run a build script
+          run: |
+            dpkg --add-architecture armhf
+            echo 29 | bash build-github-cross-compile.sh
 
         - name: Zip built files
           run: tar -zcvf BuiltDeb.tar.gz ./LingmoSrcBuild/Deb
