@@ -36,3 +36,12 @@ jobs:
       - name: Run a build script
         run: echo 29 | bash build-github.sh
 
+      - name: Zip built files
+        run: tar -zcvf BuiltDeb.tar.gz ./LingmoSrcBuild/Deb
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: LingmoOS Built
+          path: BuiltDeb.tar.gz
+          compression-level: 9 # maximum compression
+
