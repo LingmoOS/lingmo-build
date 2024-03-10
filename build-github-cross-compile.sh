@@ -30,7 +30,7 @@ function InstallDepends() {
     rm -rfv LingmoOSBuildDeps
     git clone https://github.com/LingmoOS/LingmoOSBuildDeps.git
     cd LingmoOSBuildDeps
-    mk-build-deps -i -t "apt-get -y" -r  > /dev/null
+    mk-build-deps -i -t "apt-get -y" -r  --host-arch arm64 > /dev/null
 }
 
 # 定义一个函数来编译项目
@@ -48,7 +48,7 @@ function Compile() {
     fi
     echo "正在安装 $repo_name 依赖..."
     # 在这里添加项目的依赖安装代码
-    mk-build-deps -i -t "apt-get --yes" -r
+    mk-build-deps -i -t "apt-get --yes" -r --host-arch arm64
     echo "构建 $repo_name ..."
     dpkg-buildpackage -b -uc -us -tc --host-arch arm64 -j$(nproc)
     # 在这里添加项目构建和编译命令
