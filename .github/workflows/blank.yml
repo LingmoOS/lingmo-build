@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: Build LingmoOS amd64
 
 # Controls when the workflow will run
 on:
@@ -41,7 +41,7 @@ jobs:
 
       - uses: actions/upload-artifact@v4
         with:
-          name: LingmoOS Built
+          name: LingmoOS amd64 Built
           path: BuiltDeb.tar.gz
           compression-level: 9 # maximum compression
 

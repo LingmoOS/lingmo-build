@@ -1,0 +1,49 @@
+name: Build LingmoOS Arm64
+
+on:
+    # Triggers the workflow on push or pull request events but only for the "main" branch
+    push:
+      branches: [ "main" ]
+    pull_request:
+      branches: [ "main" ]
+  
+    # Allows you to run this workflow manually from the Actions tab
+    workflow_dispatch:
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        arch: [aarch64]
+        include:
+        - arch: aarch64
+          cpu: cortex-a53
+          base_image: raspios_lite_arm64:latest
+          cpu_info: raspberrypi_zero2_w_arm64_w
+    steps:
+
+        # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+        - uses: actions/checkout@v3
+
+        - uses: pguyot/arm-runner-action@v2
+          with:
+            base_image: ${{ matrix.base_image }}
+            cpu: ${{ matrix.cpu }}
+            cpu_info: ${{ matrix.cpu_info }}
+            bind_mount_repository: true
+            commands: |
+                apt-get update -y
+                apt-get upgrade -y
+                apt-get install -y equivs curl git devscripts lintian build-essential automake autotools-dev cmake g++
+                echo 29 | bash build-github.sh
+
+        - name: Zip built files
+          run: tar -zcvf BuiltDeb.tar.gz ./LingmoSrcBuild/Deb
+
+        - uses: actions/upload-artifact@v4
+          with:
+            name: LingmoOS Arm64 Built
+            path: BuiltDeb.tar.gz
+            compression-level: 9 # maximum compression
