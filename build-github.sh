@@ -106,6 +106,7 @@ do
         for repo in $REPOS; do
             Compile $repo
         done
+        exit 0
     elif [[ $project == "quit" ]]; then
         break
     else
