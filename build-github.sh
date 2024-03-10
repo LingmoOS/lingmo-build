@@ -27,6 +27,7 @@ mkdir -p $deb_dir
 function InstallDepends() {
     echo '开始安装依赖'
     apt-get --yes install git  devscripts equivs
+    rm -rfv LingmoOSBuildDeps
     git clone https://github.com/LingmoOS/LingmoOSBuildDeps.git
     cd LingmoOSBuildDeps
     mk-build-deps -i -t "apt-get -y" -r  > /dev/null
