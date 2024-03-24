@@ -59,7 +59,7 @@ jobs:
             # Produce a binary artifact and place it in the mounted volume
             run: |
               cd /lingmoos
-              echo 29 | bash build-github.sh
+              echo 25 | bash build-github.sh
 
         - name: Zip built files
           run: tar -zcvf BuiltDeb.tar.gz ./LingmoSrcBuild/Deb
