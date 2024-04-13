@@ -19,7 +19,7 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-    container: docker.io/library/debian:trixie-slim
+    container: docker pull ghcr.io/lingmoos-testing/lingmo:polaris-slim
 
     permissions:
       contents: write
@@ -44,16 +44,6 @@ jobs:
 
       - uses: actions/upload-artifact@v4
         with:
-          name: LingmoOS amd64 Built
+          name: LingmoOS amd64 Build
           path: BuiltDeb.tar.gz
           compression-level: 9 # maximum compression
-
-      - uses: ncipollo/release-action@4f8867fa5eec0b3f59ead8f69aeba316c24907b3
-        with:
-          allowUpdates: true
-          artifactErrorsFailBuild: true
-          prerelease: true
-          name: "LingmoOS Development Build amd64"
-          artifacts: "BuiltDeb.tar.gz"
-          token: ${{ secrets.GITHUB_TOKEN }}
-
