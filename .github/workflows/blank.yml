@@ -41,7 +41,7 @@ jobs:
         run: apt-get install -y equivs curl git devscripts lintian build-essential automake autotools-dev cmake g++
       # Runs a single command using the runners shell
       - name: Run a build script
-        run: echo 28 | bash build-github.sh
+        run: echo 27 | bash build-github.sh
 
       - name: Zip built files
         run: tar -zcvf BuiltDeb.tar.gz ./LingmoSrcBuild/Deb
