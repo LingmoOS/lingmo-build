@@ -32,6 +32,7 @@ jobs:
         run: |
           rm -rfv /etc/apt/sources.list
           echo "deb https://packages.lingmo.org polaris main contrib non-free non-free-firmware" >> /etc/apt/sources.list
+          echo "deb https://mirrors.bfsu.edu.cn/debian/ testing main contrib non-free non-free-firmware" >>  /etc/apt/sources.list
       - name: Update repository
         run: apt-get update -y
       - name: Upgrade packages
