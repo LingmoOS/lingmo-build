@@ -16,6 +16,7 @@ jobs:
     outputs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
+      - uses: actions/checkout@v4
       - id: set-matrix
         run: | 
           JSON_OUTPUT=$(cat ${{ github.workspace }}/lingmo/pkgs | jq -R -s -c 'split("\n")[:-1] | map({pkg_name: .})')
@@ -29,6 +30,7 @@ jobs:
       matrix: ${{fromJson(needs.generate-data.outputs.matrix)}}
     name: Build ${{ matrix.pkgs.pkg_name }}
     steps:
+      - uses: actions/checkout@v4
       - name: Update Apt and Install packages
         run: |
           apt-get update -y && apt-get upgrade -y
