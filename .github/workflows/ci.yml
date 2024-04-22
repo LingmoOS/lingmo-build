@@ -35,4 +35,4 @@ jobs:
         run: |
           apt-get update -y && apt-get upgrade -y
           apt install -y equivs curl git devscripts lintian build-essential automake autotools-dev cmake g++ --no-install-recommends
-          bash ${{ github.workspace }}/build-pkg.sh "${{ matrix.pkgs.pkg_name }}"
+          bash build-pkg.sh "${{ matrix.pkgs.pkg_name }}"
