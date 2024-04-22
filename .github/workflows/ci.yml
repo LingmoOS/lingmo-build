@@ -18,7 +18,7 @@ jobs:
     steps:
       - id: set-matrix
         run: | 
-          JSON_OUTPUT=$(cat lingmo/pkgs | jq -R -s -c 'split("\n")[:-1] | map({pkg_name: .})')
+          JSON_OUTPUT=$(cat ${{ github.workspace }}/lingmo/pkgs | jq -R -s -c 'split("\n")[:-1] | map({pkg_name: .})')
           echo "matrix={\"pkgs\" : $JSON_OUTPUT}" >> $GITHUB_OUTPUT
 
   build:
@@ -33,4 +33,4 @@ jobs:
         run: |
           apt-get update -y && apt-get upgrade -y
           apt install -y equivs curl git devscripts lintian build-essential automake autotools-dev cmake g++ --no-install-recommends
-          bash build-pkg.sh "${{ matrix.pkgs.pkg_name }}"
+          bash ${{ github.workspace }}/build-pkg.sh "${{ matrix.pkgs.pkg_name }}"
