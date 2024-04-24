@@ -75,12 +75,30 @@ jobs:
         run: |
           rm -rfv ./unzip
           ZIP_TO="./unzip"
-          ZIP_FILES=$(ls ./zips/*.zip) #获取当前目录下所有.zip结尾的文件
+
+          # 如果目标解压目录不存在，则创建该目录
+          mkdir -p "$ZIP_TO"
+
+          # 使用 find 命令递归查找所有 .zip 文件
+          ZIP_FILES=$(find ./zips -type f -name '*.zip')
+
+          # 循环处理找到的 zip 文件
           for zip_file in $ZIP_FILES; do
-            unzip -jo ./zips/$zip_file -d $ZIP_TO
-            rm -rf $zip_file
+              # 解压 zip 文件到指定目录
+              unzip -jo "$zip_file" -d "$ZIP_TO"
+              # 检查解压是否成功
+              if [ $? -eq 0 ]; then
+                  # 删除原始的 zip 文件
+                  rm -f "$zip_file"
+              else
+                  echo "Failed to unzip $zip_file"
+              fi
           done
 
+          # 监测是否找到任何 zip 文件
+          if [ -z "$ZIP_FILES" ]; then
+              echo "No zip files found in ./zips or its subdirectories."
+          fi
       - name: Clone repo
         run: |
           git clone https://github.com/LingmoOS-Testing/lingmo-rolling-mirror.git pkg_site
@@ -89,10 +107,9 @@ jobs:
 
           git checkout --orphan latest_branch
 
-
-          DEB_FILES=$(ls $DEB_FILE_DIR/*.deb)
+          DEB_FILES=$(find DEB_FILE_DIR -type f -name '*.deb')
           for debfile in $DEB_FILES; do
-            bash add_deb.sh $DEB_FILE_DIR/$debfile
+            bash add_deb.sh $debfile
           done
           cd ..
           git add . && git commit -m "Update Packages By Actions \n Added $DEB_FILES"
