@@ -36,3 +36,66 @@ jobs:
           apt-get update -y && apt-get upgrade -y
           apt install -y equivs curl git devscripts lintian build-essential automake autotools-dev cmake g++ --no-install-recommends
           bash build-pkg.sh "${{ matrix.pkgs.pkg_name }}"
+
+  upload:
+    needs: build
+    runs-on: ubuntu-latest
+    name: Update to repo
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/download-artifact@v4
+        with:
+          # Destination path. Supports basic tilde expansion.
+          # Optional. Default is $GITHUB_WORKSPACE
+          path: $GITHUB_WORKSPACE/zips
+
+          # The repository owner and the repository name joined together by "/".
+          # If github-token is specified, this is the repository that artifacts will be downloaded from.
+          # Optional. Default is ${{ github.repository }}
+          repository: ${{ github.repository }}
+
+          # The id of the workflow run where the desired download artifact was uploaded from.
+          # If github-token is specified, this is the run that artifacts will be downloaded from.
+          # Optional. Default is ${{ github.run_id }}
+          run-id: ${{ github.run_id }}
+
+      - name: Prepare envs
+        run: |
+          sudo apt update && sudo apt install reprepro gnupg
+          echo "$GPG_SIGN_KEY" >> key.key
+          gpg --import key.key
+
+      - name: Unzip files
+        run: |
+          rm -rfv ./unzip
+          ZIP_TO="./unzip"
+          ZIP_FILES=$(ls ./zips/*.zip) #获取当前目录下所有.zip结尾的文件
+          for zip_file in $ZIP_FILES; do
+            unzip -jo ./zips/$zip_file -d $ZIP_TO
+            rm -rf $zip_file
+          done
+
+      - name: Clone repo
+        run: |
+          git clone https://github.com/LingmoOS-Testing/lingmo-rolling-mirror.git pkg_site
+          DEB_FILE_DIR="$(pwd)/unzip"
+          cd pkg_site/helpers
+          DEB_FILES=$(ls $DEB_FILE_DIR/*.deb)
+          for debfile in $DEB_FILES; do
+            bash add_deb.sh $DEB_FILE_DIR/$debfile
+          done
+          cd ..
+          git add . && git commit -m "Update Packages By Actions \n Added $DEB_FILES"
+      
+      - name: Push changes
+        uses: ad-m/github-push-action@9870d48124da805820c70ebc6ba563c715551019
+        with:
+          github_token: ${{ secrets.API_GITHUB_TOKEN }}
+          repository: LingmoOS-Testing/lingmo-rolling-mirror
+          directory: ./pkg_site
+          force: true
+
+          
+          
+          
