@@ -68,7 +68,7 @@ jobs:
       - name: Prepare envs
         run: |
           sudo apt update && sudo apt install reprepro gnupg
-          echo "$GPG_SIGN_KEY" >> key.key
+          echo "${{ vars.GPG_SIGN_KEY }}" >> key.key
           gpg --import key.key
 
       - name: Unzip files
