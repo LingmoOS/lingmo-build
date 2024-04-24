@@ -53,7 +53,7 @@ jobs:
         with:
           # Destination path. Supports basic tilde expansion.
           # Optional. Default is $GITHUB_WORKSPACE
-          path: $GITHUB_WORKSPACE/zips
+          path: ./zips
 
           # The repository owner and the repository name joined together by "/".
           # If github-token is specified, this is the repository that artifacts will be downloaded from.
@@ -68,7 +68,7 @@ jobs:
       - name: Prepare envs
         run: |
           sudo apt update && sudo apt install reprepro gnupg
-          echo "${{ vars.GPG_SIGN_KEY }}" >> key.key
+          echo "${{ secrets.GPG_SIGN_KEY }}" >> key.key
           gpg --import key.key
 
       - name: Unzip files
