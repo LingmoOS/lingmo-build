@@ -85,7 +85,7 @@ jobs:
           done
           cd ..
 
-          git config --global user.email "automation@lingmo,org"
+          git config --global user.email "automation@lingmo.org"
           git config --global user.name "Lingmo Automation Packer"
           git add . && git commit -m "Update Packages By Actions \n Added $DEB_FILES"
 
