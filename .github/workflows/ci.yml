@@ -81,7 +81,7 @@ jobs:
 
           DEB_FILES=$(find $DEB_FILE_DIR -type f -name '*.deb')
           for debfile in $DEB_FILES; do
-            bash add_deb.sh $debfile
+            bash add_deb.sh "$debfile"
           done
           cd ..
           git add . && git commit -m "Update Packages By Actions \n Added $DEB_FILES"
