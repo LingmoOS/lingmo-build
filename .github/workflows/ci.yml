@@ -76,7 +76,7 @@ jobs:
           git clone https://github.com/LingmoOS-Testing/lingmo-rolling-mirror.git pkg_site
           DEB_FILE_DIR="$(pwd)/zips"
 
-          rm pkg_site/devrepo/*
+          rm -rf pkg_site/devrepo/*
           cd pkg_site/helpers
           bash init_repo.sh
 
