@@ -40,11 +40,12 @@ function Compile() {
     cd $source_dir
     if test -d $repo_name; then
         echo "已存在 $repo_name 目录，更新中..."
-        cd $repo_name && git reset --hard HEAD && git pull
+        cd $repo_name && git reset --hard HEAD && git pull && git submodule update --init --recursive
     else
         echo "正在克隆 $repo_name ..."
         git clone https://github.com/LingmoOS/$repo_name.git
         cd $repo_name
+        git submodule update --init --recursive
     fi
     echo "正在安装 $repo_name 依赖..."
     # 在这里添加项目的依赖安装代码
