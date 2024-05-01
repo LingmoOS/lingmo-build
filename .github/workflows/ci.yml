@@ -75,7 +75,10 @@ jobs:
         run: |
           git clone https://github.com/LingmoOS-Testing/lingmo-rolling-mirror.git pkg_site
           DEB_FILE_DIR="$(pwd)/zips"
+
+          rm pkg_site/devrepo/*
           cd pkg_site/helpers
+          bash init_repo.sh
 
           git checkout --orphan latest_branch
 
@@ -87,7 +90,7 @@ jobs:
 
           git config --global user.email "automation@lingmo.org"
           git config --global user.name "Lingmo Automation Packer"
-          git add . && git commit -m "Update Packages By Actions \n Added $DEB_FILES"
+          git add . && git commit -m "Update Packages By Actions $(date)"
 
           git branch -D master
           git branch -m master
