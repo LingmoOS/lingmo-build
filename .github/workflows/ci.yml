@@ -26,7 +26,7 @@ jobs:
       - name: Update Apt and Install packages
         run: |
           apt-get update -y && apt-get upgrade -y
-          apt install -y powershell equivs curl git devscripts lintian build-essential automake autotools-dev cmake g++ --no-install-recommends
+          apt install -y powershell sudo equivs curl git devscripts lintian build-essential automake autotools-dev cmake g++ --no-install-recommends
       
       - name: Build Lingmo
         run: |
