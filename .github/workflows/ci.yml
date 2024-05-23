@@ -19,6 +19,7 @@ jobs:
 
       - name: Update Lingmo repo
         run: |
+          apt-get update -y && apt-get upgrade -y && apt install -y apt-transport-https ca-certificates
           echo "deb [trusted=yes] https://packages-lingmo.simplelinux.cn.eu.org/polaris polaris main contrib non-free" >> /etc/apt/sources.list.d/lingmo-rolling.list
           apt update
 
