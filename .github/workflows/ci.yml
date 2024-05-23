@@ -30,6 +30,7 @@ jobs:
       
       - name: Build Lingmo
         run: |
+          git config --global http.sslVerify false
           pwsh ./build.ps1
           
       - uses: actions/upload-artifact@v4
