@@ -17,10 +17,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Update Lingmo repo
+        run: |
+          echo "deb [trusted=yes] https://packages-lingmo.simplelinux.cn.eu.org/polaris polaris main contrib non-free" >> /etc/apt/sources.list.d/lingmo-rolling.list
+          apt update
+
       - name: Update Apt and Install packages
         run: |
           apt-get update -y && apt-get upgrade -y
-          apt install -y equivs curl git devscripts lintian build-essential automake autotools-dev cmake g++ --no-install-recommends
+          apt install -y powershell equivs curl git devscripts lintian build-essential automake autotools-dev cmake g++ --no-install-recommends
       
       - name: Build Lingmo
         run: |
