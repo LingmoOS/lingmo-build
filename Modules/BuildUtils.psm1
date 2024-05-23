@@ -13,6 +13,8 @@ function Get-SudoPrivilege {
     $currentUser = (whoami).ToString()
     if ($currentUser -ne "root") {
         sudo sh -c "echo 1 >> /dev/null"
+    } else {
+        return $true
     }
 
     $currentUser = (sudo whoami).ToString()
