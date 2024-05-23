@@ -6,6 +6,7 @@ $LingMainScriptDirectory  = Split-Path $LingMainScriptPath -Parent
 
 # Import modules
 Import-Module (Join-Path $LingMainScriptDirectory "/Modules/GlobalConfig")
+Import-Module (Join-Path $LingMainScriptDirectory "/Modules/GitModule")
 
 <#
     .Description
@@ -14,6 +15,8 @@ Import-Module (Join-Path $LingMainScriptDirectory "/Modules/GlobalConfig")
 function Main() {
     Write-Output "Current Root Path: " (Get-LingmoRootPath)
     Write-Output "Current Artifact Path: " (Get-ArtifactExportPath)
+
+    Import-LingmoRepo "https://git.lingmo.org/lingmo-os-team/lingmo-build.git" "lingmo-build"
 }
 
 
