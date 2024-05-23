@@ -1,0 +1,16 @@
+stages:
+  - build
+
+build_job:
+  stage: build
+  image: debian:trixie-slim
+  script:
+    - echo "deb [trusted=yes] https://packages-lingmo.simplelinux.cn.eu.org/polaris polaris main contrib non-free" >> /etc/apt/sources.list.d/lingmo-rolling.list
+    - apt-get update -y && apt-get upgrade -y
+    - apt-get install -y powershell equivs curl git devscripts lintian build-essential automake autotools-dev cmake g++
+    - pwsh ./build.ps1
+  artifacts:
+    name: Lingmo Artifacts
+    paths:
+      - BuildArtifacts
+    expire_in: 1 week
