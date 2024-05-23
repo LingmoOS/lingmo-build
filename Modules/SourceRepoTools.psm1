@@ -84,15 +84,15 @@ function Get-AllRepoConfigs {
     
     $configFileNames = (Get-ChildItem (Get-ConfigPath)).Name
 
-    [SourceItem[]] $results;
+    $results = New-Object System.Collections.ArrayList
 
     foreach ($name in $configFileNames) {
         $fullPath = "$(Get-ConfigPath)/$name"
         $item = Get-ConfigFromFile $fullPath
         if ($clone) {
-            $ret = $item.CloneRepo()
+            $item.CloneRepo() | Out-Null
         }
-        $results += $item
+        $results.Add($item) | Out-Null
     }
 
     return $results
