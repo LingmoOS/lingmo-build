@@ -3,17 +3,44 @@
     Contain helpers for using git.
 #>
 
-Import-Module ./GlobalConfig
+Import-Module "$PSScriptRoot/GlobalConfig"
 
-
-function Import-LingmoRepo {  
+<#
+    .DESCRIPTION
+    Remove the Dir if it exists
+#>
+function Remove-DirIfExist {
     param (
-        [string[]]$repoURL,
-        [string[]]$saveName
+        [Parameter(Mandatory)]
+        [string] $dirPath
     )
 
-    $cloneDst = (Get-SourceCodePath)
+    # Check if dir exists
+    if (Test-Path -Path $dirPath) {
+        Remove-Item $dirPath -Recurse -Force
+    }
+}
 
-    git clone $repoURL "$cloneDst/$saveName"
+<#
+    .DESCRIPTION
+    Clone repo into given directory
+    .OUTPUTS
+    Path to the cloned repo
+#>
+function Import-LingmoRepo {  
+    param (
+        [Parameter(Mandatory)]
+        [string] $repoURL,
+        [Parameter(Mandatory)]
+        [string] $saveName
+    )
+
+    $cloneDst = "$(Get-SourceCodePath)/$saveName"
+
+    Remove-DirIfExist $cloneDst
+
+    git clone $repoURL $cloneDst
+
+    return $cloneDst
 }
 Export-ModuleMember -Function Import-LingmoRepo

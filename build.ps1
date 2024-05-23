@@ -13,10 +13,12 @@ Import-Module (Join-Path $LingMainScriptDirectory "/Modules/GitModule")
     Main entry for Lingmo DE builder
 #>
 function Main() {
-    Write-Output "Current Root Path: " (Get-LingmoRootPath)
-    Write-Output "Current Artifact Path: " (Get-ArtifactExportPath)
+    Write-Output "Current Root Path: $(Get-LingmoRootPath)"
+    Write-Output "Current Artifact Path: $(Get-ArtifactExportPath)"
 
-    Import-LingmoRepo "https://git.lingmo.org/lingmo-os-team/lingmo-build.git" "lingmo-build"
+    $repo_path = (Import-LingmoRepo "https://git.lingmo.org/lingmo-os-team/lingmo-build.git" "lingmo-build")
+
+    echo $repo_path
 }
 
 
