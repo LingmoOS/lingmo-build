@@ -7,18 +7,17 @@ $LingMainScriptDirectory  = Split-Path $LingMainScriptPath -Parent
 # Import modules
 Import-Module (Join-Path $LingMainScriptDirectory "/Modules/GlobalConfig")
 Import-Module (Join-Path $LingMainScriptDirectory "/Modules/GitModule")
+Import-Module (Join-Path $LingMainScriptDirectory "/Modules/SourceRepoTools")
 
 <#
     .Description
     Main entry for Lingmo DE builder
 #>
-function Main() {
+function Main {
     Write-Output "Current Root Path: $(Get-LingmoRootPath)"
     Write-Output "Current Artifact Path: $(Get-ArtifactExportPath)"
 
-    $repo_path = (Import-LingmoRepo "https://git.lingmo.org/lingmo-os-team/lingmo-build.git" "lingmo-build")
-
-    echo $repo_path
+    Get-AllRepoConfigs "$(Get-ConfigPath)" $true
 }
 
 

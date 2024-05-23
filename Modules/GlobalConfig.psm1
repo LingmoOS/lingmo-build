@@ -18,3 +18,8 @@ function Get-SourceCodePath () {
     return (Join-Path (Get-LingmoRootPath) "/LingmoSourceCodes")
 }
 Export-ModuleMember -Function Get-SourceCodePath
+
+function Get-ConfigPath () {
+    return (Join-Path (Get-LingmoRootPath) "/Configs")
+}
+Export-ModuleMember -Function Get-ConfigPath
