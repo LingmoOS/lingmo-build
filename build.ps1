@@ -1,5 +1,9 @@
 #!/usr/bin/env pwsh
 
+# Set params
+## Stop on error
+$ErrorActionPreference = "Stop"
+
 # Detect Directory
 $LingMainScriptPath = $MyInvocation.MyCommand.Definition
 $LingMainScriptDirectory  = Split-Path $LingMainScriptPath -Parent
@@ -8,16 +12,21 @@ $LingMainScriptDirectory  = Split-Path $LingMainScriptPath -Parent
 Import-Module (Join-Path $LingMainScriptDirectory "/Modules/GlobalConfig")
 Import-Module (Join-Path $LingMainScriptDirectory "/Modules/GitModule")
 Import-Module (Join-Path $LingMainScriptDirectory "/Modules/SourceRepoTools")
+Import-Module (Join-Path $LingMainScriptDirectory "/Modules/BuildUtils")
 
 <#
     .Description
     Main entry for Lingmo DE builder
 #>
 function Main {
-    Write-Output "Current Root Path: $(Get-LingmoRootPath)"
-    Write-Output "Current Artifact Path: $(Get-ArtifactExportPath)"
+    Write-Host "Current Root Path: $(Get-LingmoRootPath)"
+    Write-Host "Current Artifact Path: $(Get-ArtifactExportPath)"
 
-    Get-AllRepoConfigs "$(Get-ConfigPath)" $true
+    # Get config list
+    Write-Host "Get and download repo fron config files"
+    $configList = Get-AllRepoConfigs "$(Get-ConfigPath)" $true
+
+    Start-PackageBuild $configList
 }
 
 

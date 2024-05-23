@@ -39,7 +39,7 @@ function Import-LingmoRepo {
 
     Remove-DirIfExist $cloneDst
 
-    git clone $repoURL $cloneDst
+    git clone $repoURL $cloneDst | Out-Null
 
     return $cloneDst
 }
