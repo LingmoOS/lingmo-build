@@ -1,0 +1,5 @@
+{
+    "Name": "lingmo-appmotor",
+    "Repository": "https://git.lingmo.org/lingmo-os-team/lingmo-appmotor.git",
+    "BuildType": "Debian"
+}

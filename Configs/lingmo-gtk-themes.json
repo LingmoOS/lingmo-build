@@ -1,0 +1,5 @@
+{
+    "Name": "lingmo-gtk-themes",
+    "Repository": "https://git.lingmo.org/lingmo-os-team/lingmo-gtk-themes.git",
+    "BuildType": "Debian"
+}

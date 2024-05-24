@@ -1,0 +1,5 @@
+{
+    "Name": "lingmo-sddm-theme",
+    "Repository": "https://git.lingmo.org/lingmo-os-team/lingmo-sddm-theme.git",
+    "BuildType": "Debian"
+}

@@ -1,0 +1,5 @@
+{
+    "Name": "lingmo-videoplayer",
+    "Repository": "https://git.lingmo.org/lingmo-os-team/lingmo-videoplayer.git",
+    "BuildType": "Debian"
+}

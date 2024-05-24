@@ -1,0 +1,5 @@
+{
+    "Name": "lingmo-filemanager",
+    "Repository": "https://git.lingmo.org/lingmo-os-team/lingmo-filemanager.git",
+    "BuildType": "Debian"
+}

@@ -1,0 +1,5 @@
+{
+    "Name": "lingmo-daemon",
+    "Repository": "https://git.lingmo.org/lingmo-os-team/lingmo-daemon.git",
+    "BuildType": "Debian"
+}

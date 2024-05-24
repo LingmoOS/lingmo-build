@@ -1,0 +1,5 @@
+{
+    "Name": "lingmo-neofetch",
+    "Repository": "https://git.lingmo.org/lingmo-os-team/lingmo-neofetch.git",
+    "BuildType": "Debian"
+}
