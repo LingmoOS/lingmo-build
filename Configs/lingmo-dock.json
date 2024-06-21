@@ -1,5 +1,5 @@
 {
     "Name": "lingmo-dock",
-    "Repository": "https://git.lingmo.org/lingmo-os-team/lingmo-dock.git",
+    "Repository": "https://github.com/LingmoOS/lingmo-dock.git",
     "BuildType": "Debian"
 }
