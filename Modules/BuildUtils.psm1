@@ -33,7 +33,7 @@ function Install-GlobalDepends {
     sudo apt-get --yes install git devscripts equivs | Out-Null
 
     # Assuming Windows has "LingmoOSBuildDeps" directory support
-    $repoPath = Import-LingmoRepo "https://git.lingmo.org/lingmo-os-team/LingmoOSBuildDeps.git" "LingmoOSBuildDeps" 
+    $repoPath = Import-LingmoRepo "https://github.com/LingmoOS/LingmoOSBuildDeps.git" "LingmoOSBuildDeps" 
     Set-Location $repoPath
     sudo mk-build-deps -i -t "apt-get -y" -r | Out-Null
 }

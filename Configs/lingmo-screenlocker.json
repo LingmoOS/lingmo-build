@@ -1,5 +1,5 @@
 {
     "Name": "lingmo-screenlocker",
-    "Repository": "https://git.lingmo.org/lingmo-os-team/lingmo-screenlocker.git",
+    "Repository": "https://github.com/LingmoOS/lingmo-screenlocker.git",
     "BuildType": "Debian"
 }

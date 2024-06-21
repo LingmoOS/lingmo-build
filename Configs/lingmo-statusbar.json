@@ -1,5 +1,5 @@
 {
     "Name": "lingmo-statusbar",
-    "Repository": "https://git.lingmo.org/lingmo-os-team/lingmo-statusbar.git",
+    "Repository": "https://github.com/LingmoOS/lingmo-statusbar.git",
     "BuildType": "Debian"
 }
