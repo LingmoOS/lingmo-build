@@ -1,5 +1,5 @@
 {
     "Name": "lingmo-grub-config",
-    "Repository": "https://git.lingmo.org/lingmo-os-team/lingmo-grub-config.git",
+    "Repository": "https://github.com/LingmoOS/lingmo-grub-config.git",
     "BuildType": "Debian"
 }
