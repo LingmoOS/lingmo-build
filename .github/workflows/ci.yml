@@ -26,7 +26,13 @@ jobs:
       - name: Update Apt and Install packages
         run: |
           apt-get update -y && apt-get upgrade -y
-          apt install -y powershell sudo equivs curl git devscripts lintian build-essential automake autotools-dev cmake g++ --no-install-recommends
+          apt install -y sudo equivs curl git devscripts lintian build-essential automake autotools-dev cmake g++ --no-install-recommends
+
+      - name: Install PowerShell
+        run: |
+          cd /tmp
+          curl -o https://github.com/PowerShell/PowerShell/releases/download/v7.4.3/powershell_7.4.3-1.deb_amd64.deb
+          apt install ./powershell_7.4.3-1.deb_amd64.deb -y
       
       - name: Build Lingmo
         run: |
