@@ -31,7 +31,7 @@ jobs:
       - name: Install PowerShell
         run: |
           cd /tmp
-          curl -o https://github.com/PowerShell/PowerShell/releases/download/v7.4.3/powershell_7.4.3-1.deb_amd64.deb
+          curl -O https://github.com/PowerShell/PowerShell/releases/download/v7.4.3/powershell_7.4.3-1.deb_amd64.deb
           apt install ./powershell_7.4.3-1.deb_amd64.deb -y
       
       - name: Build Lingmo
