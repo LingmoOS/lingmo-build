@@ -30,7 +30,7 @@ jobs:
 
       - name: Install PowerShell
         run: |
-          curl https://github.com/PowerShell/PowerShell/releases/download/v7.4.3/powershell_7.4.3-1.deb_amd64.deb -o powershell.deb
+          curl -L https://github.com/PowerShell/PowerShell/releases/download/v7.4.3/powershell_7.4.3-1.deb_amd64.deb -o powershell.deb
           sudo apt install -y ./powershell.deb
           rm powershell.deb
       
