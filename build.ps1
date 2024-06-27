@@ -23,7 +23,7 @@ function Main {
     Write-Host "Current Artifact Path: $(Get-ArtifactExportPath)"
 
     # Get config list
-    Write-Host "Get and download repo fron config files"
+    Write-Host "Get and download repo from config files"
     $configList = Get-AllRepoConfigs "$(Get-ConfigPath)" $true
 
     Start-PackageBuild $configList
