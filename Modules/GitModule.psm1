@@ -34,7 +34,7 @@ function Import-LingmoRepo {
         [Parameter(Mandatory)]
         [string] $saveName,
         [Parameter(Mandatory)]
-        [string] $cloneDevGit,
+        [bool] $cloneDevGit,
         [Parameter()]
         [string] $Tag
     )
