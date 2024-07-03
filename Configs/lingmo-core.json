@@ -1,5 +1,6 @@
 {
     "Name": "lingmo-core",
     "Repository": "https://github.com/LingmoOS/lingmo-core.git",
-    "BuildType": "Debian"
+    "BuildType": "Debian",
+    "Tag": "2.0.1"
 }

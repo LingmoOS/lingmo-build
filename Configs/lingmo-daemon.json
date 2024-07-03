@@ -1,5 +1,6 @@
 {
     "Name": "lingmo-daemon",
     "Repository": "https://github.com/LingmoOS/lingmo-daemon.git",
-    "BuildType": "Debian"
+    "BuildType": "Debian",
+    "Tag": "1.9.9"
 }

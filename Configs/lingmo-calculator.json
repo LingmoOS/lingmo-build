@@ -1,5 +1,6 @@
 {
     "Name": "lingmo-calculator",
     "Repository": "https://github.com/LingmoOS/lingmo-calculator.git",
-    "BuildType": "Debian"
+    "BuildType": "Debian",
+    "Tag": "0.6-2"
 }

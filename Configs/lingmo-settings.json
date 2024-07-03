@@ -1,5 +1,6 @@
 {
     "Name": "lingmo-settings",
     "Repository": "https://github.com/LingmoOS/lingmo-settings.git",
-    "BuildType": "Debian"
+    "BuildType": "Debian",
+    "Tag": "2.1.4"
 }

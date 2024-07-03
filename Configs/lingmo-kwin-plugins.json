@@ -1,5 +1,6 @@
 {
     "Name": "lingmo-kwin-plugins",
     "Repository": "https://github.com/LingmoOS/lingmo-kwin-plugins.git",
-    "BuildType": "Debian"
+    "BuildType": "Debian",
+    "Tag": "1.2.0-0"
 }

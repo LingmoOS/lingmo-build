@@ -15,17 +15,24 @@ class SourceItem {
     # Is this repo initialized? i.e. cloned and other init actions.
     [bool] $m_cloned;
 
+    # Tag / Commit used for building.
+    [string] $m_Tag;
+
+    [bool] $m_cloneDevGit;
+
     [string] $m_repoPath;
 
     # Default constructor
     SourceItem() { $this.Init(@{}) }
 
     # Common constructor
-    SourceItem([string]$repoName_, [string]$repoURL_, [string]$buildType_ ) {
+    SourceItem([string]$repoName_, [string]$repoURL_, [string]$buildType_,[string]$Tag_, [bool]$cloneDevGit_) {
         $this.Init(@{
             repoName = $repoName_
             repoURL = $repoURL_
             buildType = $buildType_
+            m_Tag = $Tag_
+            m_cloneDevGit = $cloneDevGit_
         })
     }
 
@@ -38,7 +45,7 @@ class SourceItem {
 
     [bool] CloneRepo() {
         try {
-            $this.m_repoPath = (Import-LingmoRepo $this.repoURL $this.repoName)
+            $this.m_repoPath = (Import-LingmoRepo $this.repoURL $this.repoName $this.m_cloneDevGit $this.m_Tag)
         } catch {
             Write-Output "An error occurred when cloning repo $($this.repoName):"
             Write-Output $_
@@ -55,7 +62,8 @@ class SourceItem {
 function Get-ConfigFromFile {
     param (
         [Parameter(Mandatory)]
-        [string] $filePath
+        [string] $filePath,
+        [bool] $cloneDevGit
     )
 
     $json_data = Get-Content -Raw -Path $filePath | ConvertFrom-Json
@@ -63,7 +71,9 @@ function Get-ConfigFromFile {
     $source_item = [SourceItem]::new(
         $json_data.Name,
         $json_data.Repository,
-        $json_data.BuildType
+        $json_data.BuildType,
+        $json_data.Tag,
+        $cloneDevGit
     );
 
     return $source_item
@@ -79,7 +89,8 @@ Export-ModuleMember -Function Get-ConfigFromFile
 function Get-AllRepoConfigs {
     param (
         [string] $configDir,
-        [bool] $clone
+        [bool] $clone,
+        [bool] $cloneDevGit # Clone directly from git, not using tags
     )
     
     $configFileNames = (Get-ChildItem (Get-ConfigPath)).Name
@@ -88,7 +99,7 @@ function Get-AllRepoConfigs {
 
     foreach ($name in $configFileNames) {
         $fullPath = "$(Get-ConfigPath)/$name"
-        $item = Get-ConfigFromFile $fullPath
+        $item = Get-ConfigFromFile $fullPath $cloneDevGit
         if ($clone) {
             $item.CloneRepo() | Out-Null
         }

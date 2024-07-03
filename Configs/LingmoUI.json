@@ -1,5 +1,6 @@
 {
     "Name": "LingmoUI",
     "Repository": "https://github.com/LingmoOS/LingmoUI.git",
-    "BuildType": "Debian"
+    "BuildType": "Debian",
+    "Tag": "2.0.2"
 }

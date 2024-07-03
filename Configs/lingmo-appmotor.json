@@ -1,5 +1,6 @@
 {
     "Name": "lingmo-appmotor",
     "Repository": "https://github.com/LingmoOS/lingmo-appmotor.git",
+    "Tag": "1.9.9",
     "BuildType": "Debian"
 }

@@ -1,5 +1,6 @@
 {
     "Name": "lingmo-screenshots",
     "Repository": "https://github.com/LingmoOS/lingmo-screenshots.git",
-    "BuildType": "Debian"
+    "BuildType": "Debian",
+    "Tag": "1.9.9"
 }
