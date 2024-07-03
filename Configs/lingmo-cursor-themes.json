@@ -1,5 +1,6 @@
 {
     "Name": "lingmo-cursor-themes",
     "Repository": "https://github.com/LingmoOS/lingmo-cursor-themes.git",
-    "BuildType": "Debian"
+    "BuildType": "Debian",
+    "Tag": "2.0.0-2"
 }

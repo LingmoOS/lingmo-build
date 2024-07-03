@@ -1,5 +1,6 @@
 {
     "Name": "lingmo-gtk-themes",
     "Repository": "https://github.com/LingmoOS/lingmo-gtk-themes.git",
-    "BuildType": "Debian"
+    "BuildType": "Debian",
+    "Tag": "1.9.9-10"
 }

@@ -1,5 +1,6 @@
 {
     "Name": "lingmo-terminal",
     "Repository": "https://github.com/LingmoOS/lingmo-terminal.git",
-    "BuildType": "Debian"
+    "BuildType": "Debian",
+    "Tag": "1.9.9"
 }

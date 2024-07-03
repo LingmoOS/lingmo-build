@@ -1,5 +1,6 @@
 {
     "Name": "lingmo-texteditor",
     "Repository": "https://github.com/LingmoOS/lingmo-texteditor.git",
-    "BuildType": "Debian"
+    "BuildType": "Debian",
+    "Tag": "2.0.0"
 }

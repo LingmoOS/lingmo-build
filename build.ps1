@@ -1,5 +1,11 @@
 #!/usr/bin/env pwsh
 
+# Handle cmd params
+param(
+    [Parameter()]
+    [Switch]$BuildFromGit = $false  # Enable this will build from latest git repo instead of latest release.
+)
+
 # Set params
 ## Stop on error
 $ErrorActionPreference = "Stop"
@@ -24,7 +30,7 @@ function Main {
 
     # Get config list
     Write-Host "Get and download repo from config files"
-    $configList = Get-AllRepoConfigs "$(Get-ConfigPath)" $true
+    $configList = Get-AllRepoConfigs "$(Get-ConfigPath)" $true $BuildFromGit
 
     Start-PackageBuild $configList
 }

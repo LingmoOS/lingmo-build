@@ -1,5 +1,6 @@
 {
     "Name": "lingmo-ocr",
     "Repository": "https://github.com/LingmoOS/lingmo-ocr.git",
-    "BuildType": "Debian"
+    "BuildType": "Debian",
+    "Tag": "1.9.9-1"
 }

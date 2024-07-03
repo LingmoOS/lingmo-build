@@ -1,5 +1,6 @@
 {
     "Name": "lingmo-filemanager",
     "Repository": "https://github.com/LingmoOS/lingmo-filemanager.git",
-    "BuildType": "Debian"
+    "BuildType": "Debian",
+    "Tag": "0.8"
 }

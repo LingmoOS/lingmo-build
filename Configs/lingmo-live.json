@@ -1,5 +1,6 @@
 {
     "Name": "lingmo-live",
     "Repository": "https://github.com/LingmoOS/lingmo-live.git",
-    "BuildType": "Debian"
+    "BuildType": "Debian",
+    "Tag": "2.0.0-lingmo-a8"
 }

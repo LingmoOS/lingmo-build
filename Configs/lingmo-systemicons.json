@@ -1,5 +1,6 @@
 {
     "Name": "lingmo-systemicons",
     "Repository": "https://github.com/LingmoOS/lingmo-systemicons.git",
-    "BuildType": "Debian"
+    "BuildType": "Debian",
+    "Tag": "2.0.3-5"
 }

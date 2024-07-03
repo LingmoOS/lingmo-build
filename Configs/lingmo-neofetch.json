@@ -1,5 +1,6 @@
 {
     "Name": "lingmo-neofetch",
     "Repository": "https://github.com/LingmoOS/lingmo-neofetch.git",
-    "BuildType": "Debian"
+    "BuildType": "Debian",
+    "Tag": "8.0"
 }

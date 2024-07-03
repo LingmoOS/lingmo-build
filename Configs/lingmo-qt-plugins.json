@@ -1,5 +1,6 @@
 {
     "Name": "lingmo-qt-plugins",
     "Repository": "https://github.com/LingmoOS/lingmo-qt-plugins.git",
-    "BuildType": "Debian"
+    "BuildType": "Debian",
+    "Tag": "2.0.0"
 }

@@ -1,5 +1,6 @@
 {
     "Name": "lingmo-archive-keyring",
     "Repository": "https://github.com/LingmoOS/lingmo-archive-keyring.git",
-    "BuildType": "Debian"
+    "BuildType": "Debian",
+    "Tag": "2024.5.1"
 }

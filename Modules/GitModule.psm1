@@ -32,14 +32,22 @@ function Import-LingmoRepo {
         [Parameter(Mandatory)]
         [string] $repoURL,
         [Parameter(Mandatory)]
-        [string] $saveName
+        [string] $saveName,
+        [Parameter(Mandatory)]
+        [string] $cloneDevGit,
+        [Parameter()]
+        [string] $Tag
     )
 
     $cloneDst = "$(Get-SourceCodePath)/$saveName"
 
     Remove-DirIfExist $cloneDst
 
-    git clone $repoURL $cloneDst | Out-Null
+    if ($cloneDevGit -eq $true) {
+        git clone $repoURL $cloneDst | Out-Null
+    } else {
+        git clone -b $Tag $repoURL $cloneDst | Out-Null
+    }
 
     return $cloneDst
 }
