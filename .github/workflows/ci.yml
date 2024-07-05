@@ -7,6 +7,7 @@ on:
     branches: [ "main" ]
   schedule:
     - cron: "59 15 * * *"
+  workflow_dispatch:
     
 defaults:
   run:
@@ -22,19 +23,19 @@ jobs:
 
       - name: Update Lingmo repo
         run: |
-          apt-get update -y && apt-get upgrade -y && apt install -y apt-transport-https ca-certificates
+          apt-get update -y && apt-get upgrade -y && apt-get install -y apt-transport-https ca-certificates
           echo "deb [trusted=yes] https://packages-lingmo.simplelinux.cn.eu.org/polaris polaris main contrib non-free" >> /etc/apt/sources.list.d/lingmo-rolling.list
-          apt update
+          apt-get update
 
       - name: Update Apt and Install packages
         run: |
           apt-get update -y && apt-get upgrade -y
-          apt install -y sudo equivs curl git devscripts lintian build-essential automake autotools-dev cmake g++ --no-install-recommends
+          apt-get install -y sudo equivs curl git devscripts lintian build-essential automake autotools-dev cmake g++ --no-install-recommends
 
       - name: Install PowerShell
         run: |
           curl -L https://github.com/PowerShell/PowerShell/releases/download/v7.4.3/powershell_7.4.3-1.deb_amd64.deb -o powershell.deb
-          sudo apt install -y ./powershell.deb
+          apt-get install -y ./powershell.deb
           rm powershell.deb
       
       - name: Build Lingmo
