@@ -7,8 +7,8 @@ Import-Module "$PSScriptRoot/GitModule"
 Import-Module "$PSScriptRoot/SourceRepoTools"
 
 function Get-SudoPrivilege {
-    Write-Host "Now checking for sudo rights."
-    Write-Host "Please enter your password to get sudo right if needed."
+    Write-Host "Now checking for root privileges."
+    Write-Host "Please enter your password to get root privileges if needed."
 
     $currentUser = (whoami).ToString()
     if ($currentUser -ne "root") {
