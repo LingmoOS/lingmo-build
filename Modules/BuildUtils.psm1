@@ -46,7 +46,6 @@ function Install-RepoDepends($repoPath) {
     sudo mk-build-deps -i -t "apt-get -y" -r | Out-Null
 }
 
-# 定义一个函数来编译项目
 function Start-CompileDeb($repo) {
     Write-Host "Start to compile $($repo.repoName) ..."
 
@@ -61,14 +60,13 @@ function Start-CompileDeb($repo) {
     Write-Host "$($repo.repoName) Complete!"
 
     Write-Host "Copy $($repo.repoName) artifacts"
-
-    # 设置目录路径
+    
     $debPath = Get-SourceCodePath
-    # 检查目录是否存在，如果不存在则创建
+
     if (-not (Test-Path (Get-ArtifactExportPath))) {
         New-Item -ItemType Directory -Path (Get-ArtifactExportPath) | Out-Null
     }
-    # 移动符合条件的文件
+
     Get-ChildItem -Path $debPath -Filter '*.deb' | Move-Item -Force -Confirm:$false -Destination (Get-ArtifactExportPath)
 }
 
