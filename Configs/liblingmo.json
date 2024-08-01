@@ -1,6 +1,6 @@
 {
     "Name": "liblingmo",
-    "Repository": "https://github.com/LingmoOS/liblingmo.git",
+    "Repository": "https://github.com/LingmoOS/lib_lingmo.git",
     "Tag": "1.9.10",
     "BuildType": "Debian"
 }
