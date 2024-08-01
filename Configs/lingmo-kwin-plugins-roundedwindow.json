@@ -2,5 +2,5 @@
     "Name": "lingmo-kwin-plugins-roundedwindow",
     "Repository": "https://github.com/LingmoOS/lingmo-kwin-plugins-roundedwindow.git",
     "BuildType": "Debian",
-    "Tag": "1.0.0-2"
+    "Tag": "1.0.1"
 }
