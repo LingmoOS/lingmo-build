@@ -24,7 +24,7 @@ jobs:
       - name: Update Lingmo repo
         run: |
           apt-get update -y && apt-get upgrade -y && apt-get install -y apt-transport-https ca-certificates
-          echo "deb [trusted=yes] https://packages-lingmo.simplelinux.cn.eu.org/lingmo-archive/rolling/polaris polaris main contrib non-free" >> /etc/apt/sources.list.d/lingmo-rolling.list
+          echo "deb [trusted=yes] https://packages-lingmo.simplelinux.cn.eu.org/lingmo-archive/rolling/hydrogen hydrogen main" >> /etc/apt/sources.list.d/lingmo-rolling.list
           apt-get update
 
       - name: Update Apt and Install packages
