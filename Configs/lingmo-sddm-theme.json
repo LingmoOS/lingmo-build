@@ -2,5 +2,5 @@
     "Name": "lingmo-sddm-theme",
     "Repository": "https://github.com/LingmoOS/lingmo-sddm-theme.git",
     "BuildType": "Debian",
-    "Tag": "1.9.9"
+    "Tag": "2.0.1"
 }
