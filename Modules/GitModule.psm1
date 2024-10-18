@@ -45,10 +45,10 @@ function Import-LingmoRepo {
     Remove-DirIfExist $cloneDst
 
     if ($cloneDevGit -eq $true) {
-        $params = @("clone", "$($repoURL)", "$($cloneDst)")
+        $params = @("clone", "--recursive", "$($repoURL)", "$($cloneDst)")
         $ret = Start-ShellProcess "git" $params
     } else {
-        $params = @("clone", "-b", "$($Tag)", "$($repoURL)", "$($cloneDst)")
+        $params = @("clone", "--recursive", "-b", "$($Tag)", "$($repoURL)", "$($cloneDst)")
         $ret = Start-ShellProcess "git" $params
     }
 
