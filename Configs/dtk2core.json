@@ -1,0 +1,6 @@
+{
+    "Name": "dtk2core",
+    "Repository": "https://gitee.com/GXDE-OS/dtk2core.git",
+    "Tag": "2.2.5",
+    "BuildType": "Debian"
+}
