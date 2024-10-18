@@ -101,9 +101,9 @@ function Get-AllRepoConfigs {
         $fullPath = "$(Get-ConfigPath)/$name"
         $item = Get-ConfigFromFile $fullPath $cloneDevGit
         if ($clone) {
-            $item.CloneRepo() | Out-Null
+            $item.CloneRepo()
         }
-        $results.Add($item) | Out-Null
+        $results.Add($item)
     }
 
     return $results
