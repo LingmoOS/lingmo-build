@@ -84,8 +84,8 @@ jobs:
           git config --global user.email "automation@lingmo.org"
           git config --global user.name "Lingmo Automation Packer"
           git add . && git commit -m "Update Packages By Actions"
-          git branch -D master
-          git branch -m master
+          git branch -D main
+          git branch -m main
 
           cd ..
         
