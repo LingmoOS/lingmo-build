@@ -50,14 +50,14 @@ jobs:
           
       - uses: actions/upload-artifact@v4
         with:
-          if: ${{ matrix.devbuild == "$false" }}
+          if: ${{ matrix.devbuild == "\$false" }}
           name: Lingmo Artifacts Latest Tag Build 
           path: BuildArtifacts
           compression-level: 9 # maximum compression
 
       - uses: actions/upload-artifact@v4
         with:
-          if: ${{ matrix.devbuild == "$true" }}
+          if: ${{ matrix.devbuild == "\$true" }}
           name: Lingmo Artifacts Nightly Build 
           path: BuildArtifacts
           compression-level: 9 # maximum compression
