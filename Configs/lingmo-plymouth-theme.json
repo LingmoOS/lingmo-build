@@ -1,0 +1,6 @@
+{
+    "Name": "lingmo-plymouth-theme",
+    "Repository": "https://github.com/LingmoOS/lingmo-plymouth-theme.git",
+    "Tag": "2.0.1",
+    "BuildType": "Debian"
+}
