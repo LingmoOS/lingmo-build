@@ -5,6 +5,7 @@
 Import-Module "$PSScriptRoot/GlobalConfig"
 Import-Module "$PSScriptRoot/GitModule"
 Import-Module "$PSScriptRoot/SourceRepoTools"
+Import-Module "$PSScriptRoot/CommonUtils"
 
 function Get-SudoPrivilege {
     Write-Host "Now checking for root privileges."
@@ -28,22 +29,17 @@ function Get-SudoPrivilege {
 function Install-GlobalDepends {
     Write-Host "Installing Common build dependencies"
 
-    $Env:LC_ALL="C.UTF-8"
+    $env:LC_ALL="C.UTF-8"
 
-    sudo apt-get --yes install git devscripts equivs | Out-Null
-
-    # Assuming Windows has "LingmoOSBuildDeps" directory support
-    $repoPath = Import-LingmoRepo "https://github.com/LingmoOS/LingmoOSBuildDeps.git" "LingmoOSBuildDeps" $true
-    Set-Location $repoPath
-    sudo mk-build-deps -i -t "apt-get -y" -r | Out-Null
+    Start-ShellProcess "sudo" @("apt-get", "--yes", "install", "git devscripts equivs")
 }
 
 function Install-RepoDepends($repoPath) {
-    $Env:LC_ALL="C.UTF-8"
+    $env:LC_ALL="C.UTF-8"
 
     # Assuming Windows has "LingmoOSBuildDeps" directory support
     Set-Location $repoPath
-    sudo mk-build-deps -i -t "apt-get -y" -r | Out-Null
+    Start-ShellProcess "sudo" @("mk-build-deps", "-i -t", "`"apt-get -y`"", "-r")
 }
 
 function Start-CompileDeb($repo) {
@@ -55,7 +51,8 @@ function Start-CompileDeb($repo) {
     Install-RepoDepends $repo.m_repoPath
 
     Write-Host "Build $($repo.repoName) ..."
-    dpkg-buildpackage -b -uc -us -tc -j"$(nproc)" | Out-Null
+    $totalCPUS = (nproc).ToString()
+    Start-ShellProcess "dpkg-buildpackage" @("-b", "-uc", "-us", "-tc", "-j$($totalCPUS)")
 
     Write-Host "$($repo.repoName) Complete!"
 

@@ -4,6 +4,7 @@
 #>
 
 Import-Module "$PSScriptRoot/GlobalConfig"
+Import-Module "$PSScriptRoot/CommonUtils"
 
 <#
     .DESCRIPTION
@@ -44,9 +45,11 @@ function Import-LingmoRepo {
     Remove-DirIfExist $cloneDst
 
     if ($cloneDevGit -eq $true) {
-        git clone $repoURL $cloneDst | Out-Null
+        $params = @("clone", "$($repoURL)", "$($cloneDst)")
+        $ret = Start-ShellProcess "git" $params
     } else {
-        git clone -b $Tag $repoURL $cloneDst | Out-Null
+        $params = @("clone", "-b", "$($Tag)", "$($repoURL)", "$($cloneDst)")
+        $ret = Start-ShellProcess "git" $params
     }
 
     return $cloneDst

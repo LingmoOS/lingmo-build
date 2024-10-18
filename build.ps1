@@ -15,6 +15,7 @@ $LingMainScriptPath = $MyInvocation.MyCommand.Definition
 $LingMainScriptDirectory  = Split-Path $LingMainScriptPath -Parent
 
 # Import modules
+Import-Module (Join-Path $LingMainScriptDirectory "/Modules/CommonUtils")
 Import-Module (Join-Path $LingMainScriptDirectory "/Modules/GlobalConfig")
 Import-Module (Join-Path $LingMainScriptDirectory "/Modules/GitModule")
 Import-Module (Join-Path $LingMainScriptDirectory "/Modules/SourceRepoTools")
