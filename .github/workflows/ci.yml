@@ -86,7 +86,7 @@ jobs:
           git add . && git commit -m "Update Packages By Actions"
           git branch -D main
           git branch -m main
-
+          git reflog expire --expire=now --all && git gc --prune=now --aggressive
           cd ..
         
       - name: Push changes
