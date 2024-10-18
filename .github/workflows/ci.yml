@@ -17,7 +17,7 @@ jobs:
   build-trixie:
     strategy:
       matrix:
-        devbuild: ["enabled", "disabled"]
+        devbuild: ['enabled', 'disabled']
     runs-on: ubuntu-latest
     container: docker.io/library/debian:trixie-slim
     name: Build Trixie
@@ -42,7 +42,7 @@ jobs:
           rm powershell.deb
       
       - name: Build Lingmo Nightly
-        if: ${{ matrix.devbuild == "enabled" }}
+        if: ${{ matrix.devbuild == 'enabled' }}
         run: |
           git config --global http.sslVerify false
           git config --global advice.detachedHead false
@@ -50,7 +50,8 @@ jobs:
           pwsh -c "./build.ps1 -BuildFromGit"      
           
       - name: Build Lingmo Using Tag
-        if: ${{ matrix.devbuild == "disabled" }}
+        if: ${{ matrix.devbuild == 'disabled' }}
+        if: ${{ matrix.devbuild == 'disabled' }}
         run: |
           git config --global http.sslVerify false
           git config --global advice.detachedHead false
