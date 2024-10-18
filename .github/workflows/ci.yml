@@ -17,7 +17,7 @@ jobs:
   build-trixie:
     strategy:
       matrix:
-        devbuild: ["$false", "$true"]
+        devbuild: ["enabled", "disabled"]
     runs-on: ubuntu-latest
     container: docker.io/library/debian:trixie-slim
     name: Build Trixie
@@ -41,23 +41,24 @@ jobs:
           apt-get install -y ./powershell.deb
           rm powershell.deb
       
-      - name: Build Lingmo
+      - name: Build Lingmo Nightly
+        if: ${{ matrix.devbuild = "enabled" }}
         run: |
           git config --global http.sslVerify false
           git config --global advice.detachedHead false
           chmod +x ./build.ps1
-          pwsh -c "./build.ps1 -BuildFromGit \${{ matrix.devbuild }}"
+          pwsh -c "./build.ps1 -BuildFromGit"      
+          
+      - name: Build Lingmo Using Tag
+        if: ${{ matrix.devbuild = "disabled" }}
+        run: |
+          git config --global http.sslVerify false
+          git config --global advice.detachedHead false
+          chmod +x ./build.ps1
+          pwsh -c "./build.ps1"
           
       - uses: actions/upload-artifact@v4
         with:
-          if: ${{ matrix.devbuild == '$false' }}
-          name: Lingmo Artifacts Latest Tag Build 
-          path: BuildArtifacts
-          compression-level: 9 # maximum compression
-
-      - uses: actions/upload-artifact@v4
-        with:
-          if: ${{ matrix.devbuild == '$true' }}
-          name: Lingmo Artifacts Nightly Build 
+          name: Lingmo Artifacts With Nightly ${{ matrix.devbuild }}
           path: BuildArtifacts
           compression-level: 9 # maximum compression
