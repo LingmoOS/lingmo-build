@@ -51,7 +51,6 @@ jobs:
           
       - name: Build Lingmo Using Tag
         if: ${{ matrix.devbuild == 'disabled' }}
-        if: ${{ matrix.devbuild == 'disabled' }}
         run: |
           git config --global http.sslVerify false
           git config --global advice.detachedHead false
