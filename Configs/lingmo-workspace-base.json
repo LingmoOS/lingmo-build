@@ -1,0 +1,6 @@
+{
+    "Name": "lingmo-workspace-base",
+    "Repository": "https://github.com/LingmoOS/lingmo-workspace-base.git",
+    "BuildType": "Debian",
+    "Tag": "2.0.1-0"
+}
