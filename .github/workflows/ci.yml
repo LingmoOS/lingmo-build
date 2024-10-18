@@ -89,12 +89,12 @@ jobs:
 
           cd ..
         
-        - name: Push changes
-          if: ${{ matrix.devbuild == 'enabled' }}
-          uses: ad-m/github-push-action@9870d48124da805820c70ebc6ba563c715551019
-          with:
-            github_token: ${{ secrets.API_GITHUB_TOKEN }}
-            repository: "LingmoOS/lingmo-nightly-build"
-            directory: "./pkg_site"
-            branch: 'main'
-            force: true
+      - name: Push changes
+        if: ${{ matrix.devbuild == 'enabled' }}
+        uses: ad-m/github-push-action@9870d48124da805820c70ebc6ba563c715551019
+        with:
+          github_token: ${{ secrets.API_GITHUB_TOKEN }}
+          repository: "LingmoOS/lingmo-nightly-build"
+          directory: "./pkg_site"
+          branch: 'main'
+          force: true
