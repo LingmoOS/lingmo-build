@@ -62,3 +62,39 @@ jobs:
           name: Lingmo Artifacts With Nightly ${{ matrix.devbuild }}
           path: BuildArtifacts
           compression-level: 9 # maximum compression
+
+      - name: Prepare envs
+        if: ${{ matrix.devbuild == 'enabled' }}
+        run: |
+          sudo apt update && sudo apt install reprepro gnupg
+          echo "${{ secrets.GPG_SIGN_KEY }}" >> key.key
+          gpg --import key.key
+
+      - name: Clone & Update repo
+        if: ${{ matrix.devbuild == 'enabled' }}
+        run: |
+          git clone https://github.com/LingmoOS/lingmo-nightly-build.git pkg_site
+          DEB_FILE_DIR="$(pwd)/BuildArtifacts"
+          
+          cd pkg_site
+          git checkout --orphan latest_branch
+          
+          bash ./add_debs.sh $DEB_FILE_DIR $(pwd) "nightly"
+          
+          git config --global user.email "automation@lingmo.org"
+          git config --global user.name "Lingmo Automation Packer"
+          git add . && git commit -m "Update Packages By Actions"
+          git branch -D master
+          git branch -m master
+
+          cd ..
+        
+        - name: Push changes
+          if: ${{ matrix.devbuild == 'enabled' }}
+          uses: ad-m/github-push-action@9870d48124da805820c70ebc6ba563c715551019
+          with:
+            github_token: ${{ secrets.API_GITHUB_TOKEN }}
+            repository: "LingmoOS/lingmo-nightly-build"
+            directory: "./pkg_site"
+            branch: 'main'
+            force: true
