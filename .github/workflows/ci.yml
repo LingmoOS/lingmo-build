@@ -46,7 +46,7 @@ jobs:
           git config --global http.sslVerify false
           git config --global advice.detachedHead false
           chmod +x ./build.ps1
-          pwsh -c "./build.ps1 -BuildFromGit ${{ matrix.devbuild }}"
+          pwsh -c "./build.ps1 -BuildFromGit \${{ matrix.devbuild }}"
           
       - uses: actions/upload-artifact@v4
         with:
