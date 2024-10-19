@@ -20,7 +20,7 @@ function Start-ShellProcess {
 
     if ($proc.ExitCode -ne 0) {
         # 如果非正常结束，就会报错
-        throw "Error executing $($repoURL) with param: $($cloneDst)"
+        throw "Error executing $($execName) with param: $($params)"
     }
 
     return $true

@@ -1,0 +1,6 @@
+{
+    "Name": "lingmo-updator",
+    "Repository": "https://github.com/LingmoOS/lingmo-updator.git",
+    "BuildType": "Debian",
+    "Tag": "3.0.0-rc2"
+}
