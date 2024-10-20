@@ -1,0 +1,6 @@
+{
+    "Name": "gxde-deb-installer",
+    "Repository": "https://gitee.com/GXDE-OS/gxde-deb-installer.git",
+    "Tag": "1.4.0",
+    "BuildType": "Debian"
+}
