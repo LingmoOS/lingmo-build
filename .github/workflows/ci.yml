@@ -27,7 +27,7 @@ jobs:
       - name: Update Lingmo repo
         run: |
           apt-get update -y && apt-get upgrade -y && apt-get install -y apt-transport-https ca-certificates
-          echo "deb [trusted=yes] https://download.opensuse.org/repositories/home:/elysia:/LingmoOS/Debian_Testing/ ./" >> /etc/apt/sources.list.d/lingmo-rolling.list
+          echo "deb [trusted=yes] https://raw.githubusercontent.com/LingmoOS/lingmo-nightly-build/refs/heads/main nightly experimental" >> /etc/apt/sources.list.d/lingmo-rolling.list
           apt-get update
 
       - name: Update Apt and Install packages

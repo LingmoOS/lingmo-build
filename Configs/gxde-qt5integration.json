@@ -1,0 +1,6 @@
+{
+    "Name": "gxde-qt5integration",
+    "Repository": "https://gitee.com/GXDE-OS/gxde-qt5integration.git",
+    "Tag": "0.3.12-1",
+    "BuildType": "Debian"
+}
