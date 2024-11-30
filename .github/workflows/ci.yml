@@ -17,7 +17,7 @@ jobs:
   build-trixie:
     strategy:
       matrix:
-        devbuild: ['enabled', 'disabled']
+        devbuild: ['enabled']
     runs-on: ubuntu-latest
     container: docker.io/library/debian:trixie-slim
     name: Build Trixie
