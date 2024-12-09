@@ -4,6 +4,7 @@
 param(
     [Parameter()]
     [Switch]$BuildFromGit = $false  # Enable this will build from latest git repo instead of latest release.
+    [Switch]$BuildTarball = $false
 )
 
 # Set params
