@@ -1,3 +1,9 @@
+# Deprecated
+
+Using https://github.com/LingmoOS/lingmo-pkgbuild if you want to build lingmo packages manually.
+
+I'll no longer maintain this script.
+
 # Lingmo Package Builder
 A build script for compiling LingmoOS packages. Currently written by PowerShell
 
